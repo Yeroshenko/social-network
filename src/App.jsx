@@ -7,15 +7,23 @@ import { Dialogs, Music, News, Profile, Settings } from './components/Pages'
 
 import './App.sass'
 
-const App = () => {
+const App = ({ postData, dialogsData, messagesData }) => {
+  const DialogsPage = () => {
+    return <Dialogs dialogsData={dialogsData} messagesData={messagesData} />
+  }
+
+  const ProfilePage = () => {
+    return <Profile postData={postData} />
+  }
+
   return (
     <BrowserRouter>
       <div className='app-wrapper'>
         <Header />
         <Navbar />
         <div className='app-wrapper__content'>
-          <Route path='/' exact component={Profile} />
-          <Route path='/dialogs' component={Dialogs} />
+          <Route path='/' exact component={ProfilePage} />
+          <Route path='/dialogs' component={DialogsPage} />
           <Route path='/news' component={News} />
           <Route path='/music' component={Music} />
           <Route path='/settings' component={Settings} />

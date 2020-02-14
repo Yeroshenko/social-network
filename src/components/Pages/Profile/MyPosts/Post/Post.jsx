@@ -2,7 +2,7 @@ import React from 'react'
 
 import cls from './Post.module.sass'
 
-const Post = ({ message }) => {
+const Post = ({ message, likesCount }) => {
   return (
     <div className={cls.item}>
       <img
@@ -10,6 +10,7 @@ const Post = ({ message }) => {
         alt='ava'
       />
       {message}
+      <div>{likesCount} лайков</div>
     </div>
   )
 }
