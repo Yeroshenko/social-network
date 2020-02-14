@@ -2,13 +2,17 @@ import React from 'react'
 
 import cls from './Header.module.sass'
 
+import logoSvg from '../../assets/icons/logo.svg'
+
 const Header = () => {
   return (
     <header className={cls.header}>
       <img
-        src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQd9yL2wt-AQmgnE2ZvTw1cNDPPFFpl9lLL-zp2E6UKo29_YGCT'
+        className={cls.logo}
+        src={logoSvg}
         alt='logo'
       />
+      <p className={cls.name}>SOCIAL NETWORK</p>
     </header>
   )
 }
