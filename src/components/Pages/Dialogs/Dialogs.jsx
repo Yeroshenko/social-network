@@ -5,24 +5,19 @@ import Message from './Message/Message'
 
 import cls from './Dialogs.module.sass'
 
+const Dialogs = ({ data }) => {
+  const dialogsItems = data.dialogs.map(dialog => {
+    return <DialogItem name={dialog.name} id={dialog.id} key={dialog.id} />
+  })
 
-const Dialogs = ({ dialogsData, messagesData }) => {
-
+  const messagesItems = data.messages.map(message => {
+    return <Message message={message.message} key={message.id} />
+  })
 
   return (
     <div className={cls.dialogs}>
-      <div className={cls.dialogsItems}>
-        {dialogsData &&
-          dialogsData.map(dialog => {
-            return <DialogItem name={dialog.name} id={dialog.id} key={dialog.id} />
-          })}
-      </div>
-      <div className={cls.messages}>
-        {messagesData &&
-          messagesData.map(message => {
-            return <Message message={message.message} key={message.id} />
-          })}
-      </div>
+      <div className={cls.dialogsItems}>{dialogsItems}</div>
+      <div className={cls.messages}>{messagesItems}</div>
     </div>
   )
 }

@@ -4,7 +4,14 @@ import Post from './Post/Post'
 
 import cls from './MyPosts.module.sass'
 
-const MyPosts = ({ postData }) => {
+const MyPosts = ({ postsData }) => {
+  const postElements =
+    postsData &&
+    postsData.map((post, index) => {
+      return (
+        <Post message={post.message} likesCount={post.likesCount} key={index} />
+      )
+    })
 
   return (
     <div>
@@ -13,18 +20,7 @@ const MyPosts = ({ postData }) => {
         <textarea></textarea>
         <button>Add post</button>
       </div>
-      <div className={cls.posts}>
-        {postData &&
-          postData.map((post, index) => {
-            return (
-              <Post
-                message={post.message}
-                likesCount={post.likesCount}
-                key={index}
-              />
-            )
-          })}
-      </div>
+      <div className={cls.posts}>{postElements}</div>
     </div>
   )
 }

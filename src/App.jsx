@@ -7,13 +7,13 @@ import { Dialogs, Music, News, Profile, Settings } from './components/Pages'
 
 import './App.sass'
 
-const App = ({ postData, dialogsData, messagesData }) => {
+const App = ({ state }) => {
   const DialogsPage = () => {
-    return <Dialogs dialogsData={dialogsData} messagesData={messagesData} />
+    return <Dialogs data={state.dialogsPage} />
   }
 
   const ProfilePage = () => {
-    return <Profile postData={postData} />
+    return <Profile data={state.profilePage} />
   }
 
   return (
