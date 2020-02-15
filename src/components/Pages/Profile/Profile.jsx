@@ -8,7 +8,7 @@ import cls from './Profile.module.sass'
 const Profile = ({ data }) => {
   return (
     <div className={cls.profile}>
-      <ProfileInfo />
+      <ProfileInfo profileInfo={data.profile} />
       <MyPosts postsData={data.posts} />
     </div>
   )

@@ -9,5 +9,5 @@ export {
   Music,
   News,
   Profile,
-  Settings
+  Settings,
 }

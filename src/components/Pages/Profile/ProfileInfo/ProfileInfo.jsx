@@ -1,14 +1,16 @@
 import React from 'react'
 
+import { Cover, User } from '../../../Ui'
+
 import cls from './ProfileInfo.module.sass'
 
 import coverImg from '../../../../assets/img/user-wallpaper.jpg'
 
-const ProfileInfo = () => {
+const ProfileInfo = ({ profileInfo }) => {
   return (
     <div className={cls.profileInfo}>
-      <img className={cls.cover} src={coverImg} alt='img' />
-      <div>ava + Descr</div>
+      <Cover coverImg={coverImg} addClass={cls.cover} />
+      <User profile={profileInfo} addClass={cls.user} />
     </div>
   )
 }
