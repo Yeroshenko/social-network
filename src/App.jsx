@@ -3,18 +3,24 @@ import { BrowserRouter, Route } from 'react-router-dom'
 
 import Header from './components/Header/Header'
 import Navbar from './components/Navbar/Navbar'
-import Aside from './components/Aside/Aside';
-import { Dialogs, Music, News, Profile, Settings} from './components/Pages'
+import Aside from './components/Aside/Aside'
+import { Dialogs, Music, News, Profile, Settings } from './components/Pages'
 
 import './App.sass'
 
-const App = ({ state }) => {
+const App = ({ state, addPost, updateNewPostText }) => {
   const DialogsPage = () => {
     return <Dialogs data={state.dialogsPage} />
   }
 
   const ProfilePage = () => {
-    return <Profile data={state.profilePage} />
+    return (
+      <Profile
+        profilePage={state.profilePage}
+        addPost={addPost}
+        updateNewPostText={updateNewPostText}
+      />
+    )
   }
 
   return (
@@ -29,7 +35,7 @@ const App = ({ state }) => {
           <Route path='/music' component={Music} />
           <Route path='/settings' component={Settings} />
         </div>
-        <Aside data={state.asidePage}/>
+        <Aside data={state.asidePage} />
       </div>
     </BrowserRouter>
   )

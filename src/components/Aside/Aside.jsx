@@ -4,11 +4,9 @@ import cls from './Aside.module.sass'
 import Avatar from '../Ui/Avatar/Avatar'
 
 const Aside = ({ data }) => {
-  console.log(data.friends)
-
-  const friendEl = data.friends.map(item => {
+  const friendEl = data.friends.map((item, index) => {
     return (
-      <li>
+      <li key={index}>
         <Avatar size={'6rem'} />
       </li>
     )
