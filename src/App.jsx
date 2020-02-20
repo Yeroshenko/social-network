@@ -8,19 +8,13 @@ import { Dialogs, Music, News, Profile, Settings } from './components/Pages'
 
 import './App.sass'
 
-const App = ({ state, addPost, updateNewPostText }) => {
+const App = ({ state, dispatch }) => {
   const DialogsPage = () => {
     return <Dialogs data={state.dialogsPage} />
   }
 
   const ProfilePage = () => {
-    return (
-      <Profile
-        profilePage={state.profilePage}
-        addPost={addPost}
-        updateNewPostText={updateNewPostText}
-      />
-    )
+    return <Profile profilePage={state.profilePage} dispatch={dispatch} />
   }
 
   return (

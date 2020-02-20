@@ -65,31 +65,30 @@ const store = {
       ]
     },
     asidePage: {
-      friends: [
-        {
+      friends: [{
           id: 2,
           name: 'Name1 Surname1',
           site: 'website1.io',
         },
-  
+
         {
           id: 3,
           name: 'Name2 Surname2',
           site: 'website2.io',
         },
-  
+
         {
           id: 4,
           name: 'Name3 Surname3',
           site: 'website3.io',
         },
-  
+
         {
           id: 5,
           name: 'Name4 Surname4',
           site: 'website4.io',
         },
-  
+
         {
           id: 6,
           name: 'Name5 Surname5',
@@ -98,34 +97,32 @@ const store = {
       ]
     }
   },
-
-  getState() {
-    return this._state
-  },
-
   _callSubscriber() {
     console.log('state changed')
   },
 
-  addPost() {
-    const newPost = {
-      id: 4,
-      message: this._state.profilePage.newPostText,
-      likesCount: 0
-    }
-    this._state.profilePage.posts.push(newPost)
-    this._state.profilePage.newPostText = ''
-    this._callSubscriber(this._state)
+  getState() {
+    return this._state
   },
-
-  updateNewPostText(newText) {
-    this._state.profilePage.newPostText = newText
-    this._callSubscriber(this._state)
-  },
-
   subscribe(observer) {
-    this._callSubscriber = observer 
-  } 
+    this._callSubscriber = observer
+  },
+  dispatch(action) {  
+    if (action.type === 'ADD-POST') {
+      if (!this._state.profilePage.newPostText.length) return 
+      const newPost = {
+        id: 4,
+        message: this._state.profilePage.newPostText,
+        likesCount: 0
+      }
+      this._state.profilePage.posts.push(newPost)
+      this._state.profilePage.newPostText = ''
+      this._callSubscriber(this._state)
+    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+      this._state.profilePage.newPostText = action.newText
+      this._callSubscriber(this._state)
+    }
+  }
 }
 
 export default store

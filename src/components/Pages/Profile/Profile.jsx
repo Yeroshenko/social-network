@@ -5,15 +5,14 @@ import ProfileInfo from './ProfileInfo/ProfileInfo'
 
 import cls from './Profile.module.sass'
 
-const Profile = ({ profilePage, addPost, updateNewPostText }) => {
+const Profile = ({ profilePage, dispatch }) => {
   return (
     <div className={cls.profile}>
       <ProfileInfo profileInfo={profilePage.profile} />
       <MyPosts
         postsData={profilePage.posts}
         newPostText={profilePage.newPostText}
-        updateNewPostText={updateNewPostText}
-        addPost={addPost}
+        dispatch={dispatch}
       />
     </div>
   )

@@ -4,10 +4,10 @@ import Post from './Post/Post'
 
 import cls from './MyPosts.module.sass'
 
-const MyPosts = props => {
+const MyPosts = ({ postsData, newPostText, dispatch }) => {
   const postElements =
-    props.postsData &&
-    props.postsData.map((post, index) => {
+    postsData &&
+    postsData.map((post, index) => {
       return (
         <Post message={post.message} likesCount={post.likesCount} key={index} />
       )
@@ -16,13 +16,13 @@ const MyPosts = props => {
   const newPostElement = React.createRef()
 
   const addPost = () => {
-    props.addPost()
+    dispatch({ type: 'ADD-POST' })
   }
 
   const onPostChange = () => {
     const text = newPostElement.current.value
-    props.updateNewPostText(text)
-
+    const action = { type: 'UPDATE-NEW-POST-TEXT', newText: text }
+    dispatch(action)
   }
 
   return (
@@ -32,7 +32,7 @@ const MyPosts = props => {
         <textarea
           ref={newPostElement}
           onChange={onPostChange}
-          value={props.newPostText}
+          value={newPostText}
         />
         <button onClick={addPost}>Add post</button>
       </div>
