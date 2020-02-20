@@ -10,7 +10,7 @@ import './App.sass'
 
 const App = ({ state, dispatch }) => {
   const DialogsPage = () => {
-    return <Dialogs data={state.dialogsPage} />
+    return <Dialogs state={state.dialogsPage} dispatch={dispatch} />
   }
 
   const ProfilePage = () => {

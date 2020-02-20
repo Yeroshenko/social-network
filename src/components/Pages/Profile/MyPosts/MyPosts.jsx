@@ -3,7 +3,7 @@ import React from 'react'
 import {
   addPostActionCreator,
   updateNewPostTextActionCretor
-} from '../../../../redux/state'
+} from '../../../../redux/profile-reducer'
 
 import Post from './Post/Post'
 
