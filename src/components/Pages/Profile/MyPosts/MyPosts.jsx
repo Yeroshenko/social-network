@@ -1,5 +1,10 @@
 import React from 'react'
 
+import {
+  addPostActionCreator,
+  updateNewPostTextActionCretor
+} from '../../../../redux/state'
+
 import Post from './Post/Post'
 
 import cls from './MyPosts.module.sass'
@@ -16,13 +21,12 @@ const MyPosts = ({ postsData, newPostText, dispatch }) => {
   const newPostElement = React.createRef()
 
   const addPost = () => {
-    dispatch({ type: 'ADD-POST' })
+    dispatch(addPostActionCreator())
   }
 
   const onPostChange = () => {
     const text = newPostElement.current.value
-    const action = { type: 'UPDATE-NEW-POST-TEXT', newText: text }
-    dispatch(action)
+    dispatch(updateNewPostTextActionCretor(text))
   }
 
   return (

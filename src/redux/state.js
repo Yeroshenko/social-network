@@ -1,3 +1,6 @@
+const ADD_POST = 'ADD-POST'
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+
 const store = {
   _state: {
     profilePage: {
@@ -107,9 +110,9 @@ const store = {
   subscribe(observer) {
     this._callSubscriber = observer
   },
-  dispatch(action) {  
+  dispatch(action) {
     if (action.type === 'ADD-POST') {
-      if (!this._state.profilePage.newPostText.length) return 
+      if (!this._state.profilePage.newPostText.length) return
       const newPost = {
         id: 4,
         message: this._state.profilePage.newPostText,
@@ -124,6 +127,16 @@ const store = {
     }
   }
 }
+
+export const addPostActionCreator = () => ({
+  type: ADD_POST
+})
+
+
+export const updateNewPostTextActionCretor = (text) => ({
+  type: UPDATE_NEW_POST_TEXT,
+  newText: text
+})
 
 export default store
 window.store = store
