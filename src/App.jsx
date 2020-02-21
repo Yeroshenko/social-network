@@ -9,6 +9,7 @@ import { Dialogs, Music, News, Profile, Settings } from './components/Pages'
 import './App.sass'
 
 const App = ({ state, dispatch }) => {
+  debugger
   const DialogsPage = () => {
     return <Dialogs state={state.dialogsPage} dispatch={dispatch} />
   }

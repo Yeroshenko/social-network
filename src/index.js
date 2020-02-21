@@ -1,12 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import store from './redux/state'
+import store from './redux/redux-store'
 import App from './App'
 
 import './index.sass'
 
 const rerenderEntireTree = (state) => {
+  debugger
   const app = (
     <App 
       state={state} 
@@ -19,4 +20,7 @@ const rerenderEntireTree = (state) => {
 
 rerenderEntireTree(store.getState())
 
-store.subscribe(rerenderEntireTree)
+store.subscribe(() => {
+  const state = store.getState()
+  rerenderEntireTree(state)
+})
