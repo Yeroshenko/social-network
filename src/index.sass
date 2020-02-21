@@ -1,9 +1,9 @@
-*, 
-*::before, 
+*,
+*::before,
 *::after
   padding: 0
   margin: 0
-  box-shadow: border-box
+  box-sizing: border-box
 
 html
   font-size: 11px
@@ -19,5 +19,59 @@ img
 ul, ol
   list-style: none
 
-a 
+a
   color: inherit
+
+button, input[type=submit]
+  width: 100%
+  display: block
+  padding: 1.7rem 2rem
+  font-weight: bold
+  font-size: 1.4rem
+  line-height: 1.6rem
+  border: none
+  border-radius: 1.5rem
+  cursor: pointer
+  transition: .3s border-color, background-color, color, box-shadow ease-in-out
+
+  &:active
+    outline: none
+
+.btnPrimary
+  background: #615DFA
+  color: #FFFFFF
+
+  &:hover
+    background-color: darken(#615DFA, 2%)
+
+  &:active
+    background-color: darken(#615DFA, 2%)
+
+  &:focus
+    background-color: darken(#615DFA, 2%)
+    box-shadow: 0 0 0 .25rem rgba(#615DFA, .5)
+
+textarea, input[type=text]
+  width: 100%
+  max-width: 100%
+  display: block
+  padding: 1.7rem 2rem
+  font-family: 'Montserrat', sans-serif
+  color: #3E3F5D
+  font-size: 1.4rem
+  line-height: 1.6rem
+  background-color: transparent
+  border: .2rem solid #E5E4E8
+  border-radius: 1.5rem
+  transition: .3s border-color, background-color, color, box-shadow ease-in-out
+
+  &::placeholder
+    font-size: 1.4rem
+    line-height: 1.6rem
+    color: #AEAFB4
+
+  &:focus
+    outline: none
+    border-color: lighten(#615DFA, 20%)
+    outline: 0
+    box-shadow: 0 0 0 0.2rem rgba(#615DFA,.25)

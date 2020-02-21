@@ -1,18 +1,13 @@
 import React from 'react'
 
-import {
-  addPostActionCreator,
-  updateNewPostTextActionCretor
-} from '../../../../redux/profile-reducer'
-
 import Post from './Post/Post'
 
 import cls from './MyPosts.module.sass'
 
-const MyPosts = ({ postsData, newPostText, dispatch }) => {
+const MyPosts = ({ posts, newPostText, updateNewPostText, addPost }) => {
   const postElements =
-    postsData &&
-    postsData.map((post, index) => {
+    posts &&
+    posts.map((post, index) => {
       return (
         <Post message={post.message} likesCount={post.likesCount} key={index} />
       )
@@ -20,13 +15,13 @@ const MyPosts = ({ postsData, newPostText, dispatch }) => {
 
   const newPostElement = React.createRef()
 
-  const addPost = () => {
-    dispatch(addPostActionCreator())
+  const onAddPost = () => {
+    addPost()
   }
 
   const onPostChange = () => {
     const text = newPostElement.current.value
-    dispatch(updateNewPostTextActionCretor(text))
+    updateNewPostText(text)
   }
 
   return (
@@ -38,7 +33,9 @@ const MyPosts = ({ postsData, newPostText, dispatch }) => {
           onChange={onPostChange}
           value={newPostText}
         />
-        <button onClick={addPost}>Add post</button>
+        <button className={'btnPrimary'} onClick={onAddPost}>
+          Add post
+        </button>
       </div>
       <div className={cls.posts}>{postElements}</div>
     </div>

@@ -1,19 +1,15 @@
 import React from 'react'
 
-import MyPosts from './MyPosts/MyPosts'
+import MyPostsContainer from './MyPosts/MyPostsContainer'
 import ProfileInfo from './ProfileInfo/ProfileInfo'
 
 import cls from './Profile.module.sass'
 
-const Profile = ({ profilePage, dispatch }) => {
+const Profile = ({ store }) => {
   return (
     <div className={cls.profile}>
-      <ProfileInfo profileInfo={profilePage.profile} />
-      <MyPosts
-        postsData={profilePage.posts}
-        newPostText={profilePage.newPostText}
-        dispatch={dispatch}
-      />
+      <ProfileInfo profileInfo={store.getState().profilePage.profile} />
+      <MyPostsContainer store={store} />
     </div>
   )
 }

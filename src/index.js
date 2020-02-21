@@ -7,10 +7,10 @@ import App from './App'
 import './index.sass'
 
 const rerenderEntireTree = (state) => {
-  debugger
   const app = (
     <App 
       state={state} 
+      store={store}
       dispatch={store.dispatch.bind(store)}
     /> 
   )

@@ -1,16 +1,14 @@
 import React from 'react'
 
-import {
-  updateNewMessageBodyCretor,
-  sendMessageCreator
-} from '../../../redux/dialogs-reducer'
-
 import DialogItem from './DialogItem/DialogItem'
 import Message from './Message/Message'
 
 import cls from './Dialogs.module.sass'
 
-const Dialogs = ({ state, dispatch }) => {
+const Dialogs = ({ dialogsPage, updateNewMessageBody, sendMessage }) => {
+
+  const state = dialogsPage
+
   const dialogsItems = state.dialogs.map(dialog => {
     return <DialogItem name={dialog.name} id={dialog.id} key={dialog.id} />
   })
@@ -23,11 +21,11 @@ const Dialogs = ({ state, dispatch }) => {
 
   const onNewMessageChange = e => {
     const text = e.target.value
-    dispatch(updateNewMessageBodyCretor(text))
+    updateNewMessageBody(text)
   }
 
   const onSendMessageClick = () => {
-    dispatch(sendMessageCreator())
+    sendMessage()
   }
 
   return (
@@ -43,7 +41,7 @@ const Dialogs = ({ state, dispatch }) => {
           ></textarea>
         </div>
         <div>
-          <button onClick={onSendMessageClick}>Отправить</button>
+          <button className={'btnPrimary'} onClick={onSendMessageClick}>Отправить</button>
         </div>
       </div>
     </div>

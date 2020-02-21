@@ -1,11 +1,11 @@
-import Dialogs from './Dialogs/Dialogs'
+import DialogsContainer from './Dialogs/DialogsContainer'
 import Music from './Music/Music'
 import News from './News/News'
 import Profile from './Profile/Profile'
 import Settings from './Settings/Settings'
 
 export {
-  Dialogs,
+  DialogsContainer,
   Music,
   News,
   Profile,
