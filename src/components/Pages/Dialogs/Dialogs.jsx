@@ -6,7 +6,6 @@ import Message from './Message/Message'
 import cls from './Dialogs.module.sass'
 
 const Dialogs = ({ dialogsPage, updateNewMessageBody, sendMessage }) => {
-
   const state = dialogsPage
 
   const dialogsItems = state.dialogs.map(dialog => {
@@ -41,7 +40,9 @@ const Dialogs = ({ dialogsPage, updateNewMessageBody, sendMessage }) => {
           ></textarea>
         </div>
         <div>
-          <button className={'btnPrimary'} onClick={onSendMessageClick}>Отправить</button>
+          <button className={'btnPrimary'} onClick={onSendMessageClick}>
+            Отправить
+          </button>
         </div>
       </div>
     </div>

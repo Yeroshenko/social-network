@@ -1,11 +1,10 @@
-import React from 'react'
-
-import Aside from './Aside'
 import { connect } from 'react-redux'
 
-const mapStateToProps = (state) => {
+import Aside from './Aside'
+
+const mapStateToProps = state => {
   return {
-    data: state.asidePage 
+    data: state.asidePage
   }
 }
 
