@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import {
   updateNewMessageBodyCretor,
@@ -7,24 +8,24 @@ import {
 
 import Dialogs from './Dialogs'
 
-const DialogsContainer = ({ store }) => {
-  const state = store.getState().dialogsPage
 
-  const onNewMessageChange = text => {
-    store.dispatch(updateNewMessageBodyCretor(text))
+const mapStateToProps = state => {
+  return {
+    dialogsPage: state.dialogsPage
   }
-
-  const onSendMessageClick = () => {
-    store.dispatch(sendMessageCreator())
-  }
-
-  return (
-    <Dialogs
-      sendMessage={onSendMessageClick}
-      updateNewMessageBody={onNewMessageChange}
-      dialogsPage={state}
-    />
-  )
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    sendMessage: () => {
+      dispatch(sendMessageCreator())
+    },
+    updateNewMessageBody: text => {
+      dispatch(updateNewMessageBodyCretor(text))
+    }
+  }
+}
+
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
 
 export default DialogsContainer
