@@ -9,7 +9,8 @@ import {
   Music,
   News,
   Profile,
-  Settings
+  Settings,
+  UsersContainer,
 } from './components/Pages'
 
 import './App.sass'
@@ -23,6 +24,7 @@ const App = () => {
         <div className='app-wrapper__content'>
           <Route path='/' exact component={Profile} />
           <Route path='/dialogs' component={DialogsContainer} />
+          <Route path='/users' component={UsersContainer} />
           <Route path='/news' component={News} />
           <Route path='/music' component={Music} />
           <Route path='/settings' component={Settings} />

@@ -18,6 +18,11 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li>
+          <NavLink to='/users' activeClassName={cls.active}>
+            Пользователи
+          </NavLink>
+        </li>
+        <li>
           <NavLink to='/news' activeClassName={cls.active}>
             Новости
           </NavLink>

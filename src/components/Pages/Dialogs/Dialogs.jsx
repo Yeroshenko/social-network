@@ -6,6 +6,7 @@ import Message from './Message/Message'
 import cls from './Dialogs.module.sass'
 
 const Dialogs = ({ dialogsPage, updateNewMessageBody, sendMessage }) => {
+  
   const state = dialogsPage
 
   const dialogsItems = state.dialogs.map(dialog => {
