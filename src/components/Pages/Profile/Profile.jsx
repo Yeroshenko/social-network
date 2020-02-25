@@ -9,7 +9,6 @@ const Profile = () => {
   return (
     <div className={cls.profile}>
       <ProfileInfoContainer />
-      {/* <ProfileInfo profileInfo={store.getState().profilePage.profile} /> */}
       <MyPostsContainer />
     </div>
   )

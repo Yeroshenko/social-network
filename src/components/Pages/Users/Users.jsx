@@ -10,9 +10,22 @@ const Users = ({ totalUsersCount, currentPage, pageSize, users, follow, unfollow
   const pages = []
 
   for (let i = 1; i <= pagesCount; i++) pages.push(i)
-  console.log(pageSize)
+  
   return (
     <div className={cls.users}>
+      <div className={cls.pagination}>
+        {pages.map((page, index) => {
+          return (
+            <button 
+              key={index}
+              className={cn(currentPage === page && cls.selectedPage, 'btnPrimary')}
+              onClick={() => {onPageChanged(page)}}
+            > {page}
+            </button>
+          )
+        })}
+      </div>
+
       {users.map(user => {
         return (
           <div className={cls.user} key={user.id}>
@@ -53,17 +66,7 @@ const Users = ({ totalUsersCount, currentPage, pageSize, users, follow, unfollow
         )
       })}
 
-      <div className={cls.pagination}>
-        {pages.map(page => {
-          return (
-            <button
-              className={cn(currentPage === page && cls.selectedPage, 'btnPrimary')}
-              onClick={() => {onPageChanged(page)}}
-            > {page}
-            </button>
-          )
-        })}
-      </div>
+      
     </div>
   )
 }
