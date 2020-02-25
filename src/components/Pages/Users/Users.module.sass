@@ -1,16 +1,24 @@
 .user 
   max-width: 30rem
+  img
+    width: 30rem
+    border-radius: 50%
+
+.users
+  display: flex
+  align-items: center
+  justify-content: space-between
+  flex-wrap: wrap
 
 .pagination
   display: flex
   justify-content: start
-  flex-flow: wrap
+  flex-wrap: wrap
   &>*
     width: auto
     margin-left: 1rem
     margin-bottom: 1rem
 
   .selectedPage
-    font-size: 2rem
     background-color: #5753fa
 
