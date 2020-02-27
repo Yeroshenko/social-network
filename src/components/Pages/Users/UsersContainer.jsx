@@ -23,8 +23,9 @@ class UsersContainer extends Component {
     axios
       .get(`${this.baseUrl}users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
       .then(response => {
+        console.log(response)
         this.props.setUsers(response.data.items)
-        this.props.setTotalUsersCount(response.data.totalCount / 15) // test | delete divider
+        this.props.setTotalUsersCount(response.data.totalCount / 16) // test | delete divider
         this.props.toggleIsFeatching(false)
       })
   }

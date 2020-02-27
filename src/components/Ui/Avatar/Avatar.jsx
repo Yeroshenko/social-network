@@ -2,13 +2,13 @@ import React from 'react'
 
 import cls from './Avatar.module.sass'
 
-import user1 from '../../../assets/img/users/user1.jpg'
+import userPhoto from '../../../assets/img/user.png'
 
-const Avatar = ({ size, id }) => {
+const Avatar = ({ size, url }) => {
 
   return (
     <div className={cls.avatar} style={{height: size, width: size}}>
-      <img src={user1} alt='avatar' />
+      <img src={url ? url : userPhoto} alt='avatar' />
     </div>
   )
 }

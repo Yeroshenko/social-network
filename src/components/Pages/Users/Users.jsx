@@ -1,5 +1,6 @@
 import React from 'react'
 import cn from 'classnames'
+import { Link } from 'react-router-dom'
 
 import userPhoto from '../../../assets/img/user.png'
 
@@ -8,6 +9,8 @@ import cls from './Users.module.sass'
 const Users = ({ totalUsersCount, currentPage, pageSize, users, follow, unfollow, onPageChanged }) => {
   const pagesCount = Math.ceil(totalUsersCount / pageSize)
   const pages = []
+
+  console.log(users)
 
   for (let i = 1; i <= pagesCount; i++) pages.push(i)
   
@@ -31,10 +34,11 @@ const Users = ({ totalUsersCount, currentPage, pageSize, users, follow, unfollow
           <div className={cls.user} key={user.id}>
             <span>
               <div className=''>
-                <img
-                  src={user.photos.large ? user.photos.large : userPhoto}
-                  alt='user'
-                />
+                <Link to={'/profile/' + user.id}>
+                  <img
+                    src={user.photos.large ? user.photos.large : userPhoto}
+                    alt='user' />  
+                </Link>
               </div>
               <div className=''>
                 {user.followed ?
@@ -53,14 +57,8 @@ const Users = ({ totalUsersCount, currentPage, pageSize, users, follow, unfollow
               </div>
             </span>
             <span>
-              <span>
-                <div className=''>{user.name}</div>
-                <div className=''>{user.status}</div>
-              </span>
-              <span>
-                <div className=''>{'user.location.city'}</div>
-                <div className=''>{'user.location.country'}</div>
-              </span>
+              <div className=''>{user.name}</div>
+              <div className=''>{user.status}</div>
             </span>
           </div>
         )

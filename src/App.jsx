@@ -8,7 +8,7 @@ import {
   DialogsContainer,
   Music,
   News,
-  Profile,
+  ProfileContainer,
   Settings,
   UsersContainer,
 } from './components/Pages'
@@ -22,7 +22,7 @@ const App = () => {
         <Header />
         <Navbar />
         <div className='app-wrapper__content'>
-          <Route path='/' exact component={Profile} />
+          <Route path='/profile/:userId?' component={ProfileContainer} />
           <Route path='/dialogs' component={DialogsContainer} />
           <Route path='/users' component={UsersContainer} />
           <Route path='/news' component={News} />
