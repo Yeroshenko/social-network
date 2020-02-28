@@ -3,10 +3,17 @@ import { NavLink } from 'react-router-dom'
 
 import cls from './Navbar.module.sass'
 
-const Navbar = () => {
+const Navbar = ({ isAuth }) => {
   return (
     <nav className={cls.navbar}>
       <ul className={cls.list}>
+        {!isAuth && (
+          <li>
+            <NavLink to='/login' exact activeClassName={cls.active}>
+              Войти
+            </NavLink>
+          </li>
+        )}
         <li>
           <NavLink to='/profile' exact activeClassName={cls.active}>
             Профиль
@@ -37,6 +44,13 @@ const Navbar = () => {
             Настройки
           </NavLink>
         </li>
+        {isAuth && (
+          <li>
+            <NavLink to='/' exact activeClassName={cls.active}>
+              Выйти
+            </NavLink>
+          </li>
+        )}
       </ul>
     </nav>
   )

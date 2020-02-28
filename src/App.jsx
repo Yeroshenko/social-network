@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 
 import Header from './components/Header/Header'
-import Navbar from './components/Navbar/Navbar'
+import NavbarContainer from './components/Navbar/NavbarContainer'
 import AsideContainer from './components/Aside/AsideContainer'
 import {
   DialogsContainer,
@@ -20,7 +20,7 @@ const App = () => {
     <BrowserRouter>
       <div className='app-wrapper'>
         <Header />
-        <Navbar />
+        <NavbarContainer />
         <div className='app-wrapper__content'>
           <Route path='/profile/:userId?' component={ProfileContainer} />
           <Route path='/dialogs' component={DialogsContainer} />

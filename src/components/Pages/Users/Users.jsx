@@ -8,19 +8,10 @@ import coverImg from '../../../assets/img/users-wallpaper.jpg'
 
 import cls from './Users.module.sass'
 
-const Users = ({
-  totalUsersCount,
-  currentPage,
-  pageSize,
-  users,
-  follow,
-  unfollow,
-  onPageChanged
-}) => {
+const Users = ({ totalUsersCount, currentPage, pageSize, users, follow, unfollow, onPageChanged }) => {
+  
   const pagesCount = Math.ceil(totalUsersCount / pageSize)
   const pages = []
-
-  console.log(users)
 
   for (let i = 1; i <= pagesCount; i++) pages.push(i)
 
@@ -43,7 +34,6 @@ const Users = ({
       </div>
       <div className={cls.users}>
         {users.map(user => {
-          console.log(user)
           return (
             <div className={cls.userItem} key={user.id}>
               <Cover coverImg={coverImg} className={cls.cover} />
