@@ -2,6 +2,7 @@ import React from 'react'
 
 import DialogItem from './DialogItem/DialogItem'
 import Message from './Message/Message'
+import { Button } from '../../Ui'
 
 import cls from './Dialogs.module.sass'
 
@@ -41,9 +42,9 @@ const Dialogs = ({ dialogsPage, updateNewMessageBody, sendMessage }) => {
           ></textarea>
         </div>
         <div>
-          <button className={'btnPrimary'} onClick={onSendMessageClick}>
+          <Button type='primary' onClick={onSendMessageClick}>
             Отправить
-          </button>
+          </Button>
         </div>
       </div>
     </div>

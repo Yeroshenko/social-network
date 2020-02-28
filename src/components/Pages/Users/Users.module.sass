@@ -1,24 +1,50 @@
-.user 
-  max-width: 30rem
-  img
-    width: 30rem
-    border-radius: 50%
-
-.users
-  display: flex
-  align-items: center
-  justify-content: space-between
-  flex-wrap: wrap
-
 .pagination
   display: flex
   flex-wrap: wrap
   width: 100%
-  &>*
+  & > *
     width: auto
-    margin-left: 1rem
+    margin-right: 1rem
     margin-bottom: 1rem
 
   .selectedPage
     background-color: #5753fa
 
+.users
+  display: grid
+  justify-content: space-between
+  grid-template-columns: repeat(3, 1fr)
+  grid-column-gap: 1.5rem
+  grid-row-gap: 1.5rem
+
+.userItem
+  position: relative
+  // min-width: 34rem
+  padding-bottom: 28.5rem
+  border-radius: 1.5rem
+  background-color: #FFFFFF
+  overflow: hidden
+
+  .cover
+    max-height: 10rem
+
+  .user
+    position: absolute
+    top: 8%
+    left: 50%
+    transform: translateX(-50%)
+
+  .buttons
+    position: absolute
+    left: 0
+    right: 0
+    bottom: 3rem
+    display: flex
+    padding: 0 3rem
+    & > * 
+      // width: 50%
+      &:nth-child(odd)
+        margin-right: .75rem
+
+      &:nth-child(even)
+        margin-left: .75rem

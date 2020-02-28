@@ -2,70 +2,76 @@ import React from 'react'
 import cn from 'classnames'
 import { Link } from 'react-router-dom'
 
-import userPhoto from '../../../assets/img/user.png'
+import { Button, Cover, User } from '../../Ui'
+
+import coverImg from '../../../assets/img/users-wallpaper.jpg'
 
 import cls from './Users.module.sass'
 
-const Users = ({ totalUsersCount, currentPage, pageSize, users, follow, unfollow, onPageChanged }) => {
+const Users = ({
+  totalUsersCount,
+  currentPage,
+  pageSize,
+  users,
+  follow,
+  unfollow,
+  onPageChanged
+}) => {
   const pagesCount = Math.ceil(totalUsersCount / pageSize)
   const pages = []
 
   console.log(users)
 
   for (let i = 1; i <= pagesCount; i++) pages.push(i)
-  
+
   return (
-    <div className={cls.users}>
+    <>
       <div className={cls.pagination}>
         {pages.map((page, index) => {
           return (
-            <button 
+            <Button
               key={index}
-              className={cn(currentPage === page && cls.selectedPage, 'btnPrimary')}
-              onClick={() => {onPageChanged(page)}}
+              type='primary'
+              className={cn(currentPage === page && cls.selectedPage)}
+              onClick={() => {
+                onPageChanged(page)
+              }}
             > {page}
-            </button>
+            </Button>
           )
         })}
       </div>
-
-      {users.map(user => {
-        return (
-          <div className={cls.user} key={user.id}>
-            <span>
-              <div className=''>
-                <Link to={'/profile/' + user.id}>
-                  <img
-                    src={user.photos.large ? user.photos.large : userPhoto}
-                    alt='user' />  
-                </Link>
-              </div>
-              <div className=''>
-                {user.followed ?
-                  <button
-                    className={'btnPrimary'}
-                    onClick={() => unfollow(user.id)}
-                  > Unollow
-                  </button>
-                 : 
-                  <button
-                    className={'btnPrimary'}
-                    onClick={() => follow(user.id)}
-                  > Follow
-                  </button>
+      <div className={cls.users}>
+        {users.map(user => {
+          console.log(user)
+          return (
+            <div className={cls.userItem} key={user.id}>
+              <Cover coverImg={coverImg} className={cls.cover} />
+              <Link to={'/profile/' + user.id}>
+                <User
+                  photo={user.photos.large}
+                  name={user.name}
+                  aboutMe={user.status}
+                  className={cls.user}
+                />
+              </Link>
+              <div className={cls.buttons}>
+                {user.followed ? 
+                  <Button type='primary' onClick={() => unfollow(user.id)}>
+                    Отписаться
+                  </Button>
+                :
+                  <Button type='primary' onClick={() => follow(user.id)}>
+                    Подписаться
+                  </Button>
                 }
+                <Button type='secondary'>Написать</Button>
               </div>
-            </span>
-            <span>
-              <div className=''>{user.name}</div>
-              <div className=''>{user.status}</div>
-            </span>
-          </div>
-        )
-      })}
-
-      
-    </div>
+            </div>
+          )
+        })}
+      </div>
+    </>
   )
 }
 

@@ -8,17 +8,21 @@ import cls from './ProfileInfo.module.sass'
 import SocialLinks from '../../../Ui/SocialLinks/SocialLinks'
 
 const ProfileInfo = ({ profileInfo }) => {
-
   if (!profileInfo) {
     return <Loader />
   }
 
   return (
-    <div className={cls.profileInfo}>  
-      <Cover coverImg={coverImg} addClass={cls.cover} />
-      <User profile={profileInfo} addClass={cls.user} />
+    <div className={cls.profileInfo}>
+      <Cover coverImg={coverImg} className={cls.cover} />
+      <User
+        photo={profileInfo.photos.large}
+        name={profileInfo.fullName}
+        aboutMe={profileInfo.aboutMe}
+        className={cls.user}
+      />
       <div className={cls.socialLinks}>
-        <SocialLinks links={profileInfo.contacts}/>
+        <SocialLinks links={profileInfo.contacts} />
       </div>
     </div>
   )

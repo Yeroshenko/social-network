@@ -3,8 +3,8 @@ import cn from 'classnames'
 
 import cls from './Cover.module.sass'
 
-const Cover = ({ coverImg, addClass }) => {
-  return <img className={cn(cls.cover, addClass)} src={coverImg} alt='img' />
+const Cover = ({ coverImg, className }) => {
+  return <img className={cn(cls.cover, className)} src={coverImg} alt='img' />
 }
 
 export default Cover

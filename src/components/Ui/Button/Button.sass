@@ -1,0 +1,63 @@
+.btn
+  width: 100%
+  display: block
+  padding: 1.7rem 2rem
+  font-weight: bold
+  font-size: 1.4rem
+  line-height: 1.6rem
+  border: none
+  border-radius: 1.5rem
+  cursor: pointer
+  transition: .3s border-color, background-color, color, box-shadow ease-in-out
+
+  &:focus
+    outline: none
+
+  &:active
+    outline: none
+
+  &:disabled 
+    cursor: not-allowed
+    position: relative
+        
+    &::before 
+      position: absolute
+      content: ''
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      display: block
+      width: 100%
+      height: 100%
+      background-color: #FFFFFF
+      border-radius: inherit
+      opacity: .3
+
+.primary
+  background-color: #615DFA
+  color: #FFFFFF
+
+  &:hover
+    background-color: darken(#615DFA, 2%)
+
+  &:active
+    background-color: darken(#615DFA, 2%)
+
+  &:focus
+    background-color: darken(#615DFA, 2%)
+    box-shadow: 0 0 0 .25rem rgba(#615DFA, .5)
+
+.secondary
+  background-color: #23D2E3
+  color: #FFFFFF
+
+  &:hover
+    background-color: darken(#23D2E3, 2%)
+
+  &:active
+    background-color: darken(#23D2E3, 2%)
+
+  &:focus
+    background-color: darken(#23D2E3, 2%)
+    box-shadow: 0 0 0 .25rem rgba(#23D2E3, .5)

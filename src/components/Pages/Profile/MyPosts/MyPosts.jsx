@@ -3,6 +3,7 @@ import React from 'react'
 import Post from './Post/Post'
 
 import cls from './MyPosts.module.sass'
+import { Button } from '../../../Ui'
 
 const MyPosts = ({ posts, newPostText, updateNewPostText, addPost }) => {
   const postElements =
@@ -33,9 +34,9 @@ const MyPosts = ({ posts, newPostText, updateNewPostText, addPost }) => {
           onChange={onPostChange}
           value={newPostText}
         />
-        <button className={'btnPrimary'} onClick={onAddPost}>
+        <Button type='primary' onClick={onAddPost}>
           Add post
-        </button>
+        </Button>
       </div>
       <div className={cls.posts}>{postElements}</div>
     </div>
