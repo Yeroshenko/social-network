@@ -7,7 +7,6 @@ import { Button, Cover, User, Loader } from '../../Ui'
 import coverImg from '../../../assets/img/users-wallpaper.jpg'
 
 import cls from './Users.module.sass'
-import { usersApi } from '../../../api/api'
 
 const Users = ( props ) => {
   const pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -33,28 +32,14 @@ const Users = ( props ) => {
                 {user.followed ? (
                   <Button
                     disabled={props.followingInProgress.some(id => user.id === id)}
-                    onClick={() => {
-                      props.togleFollowingProgress(true, user.id)
-
-                      usersApi.unfollow(user.id).then(response => {
-                        if (response.data.resultCode === 0) props.unfollow(user.id)
-                        props.togleFollowingProgress(false, user.id)
-                      })
-                    }}
+                    onClick={() => props.unfollow(user.id)}
                   >
                     Отписаться
                   </Button>
                 ) : (
                   <Button
                     disabled={props.followingInProgress.some(id => user.id === id)}
-                    onClick={() => {
-                      props.togleFollowingProgress(true, user.id)
-
-                      usersApi.follow(user.id).then(response => {
-                        if (response.data.resultCode === 0) props.follow(user.id)
-                        props.togleFollowingProgress(false, user.id)
-                      })
-                    }}
+                    onClick={() => props.follow(user.id) }
                   >
                     Подписаться
                   </Button>
@@ -73,9 +58,7 @@ const Users = ( props ) => {
               key={index}
               type='primary'
               className={cn(props.currentPage === page && cls.selectedPage)}
-              onClick={() => {
-                props.onPageChanged(page)
-              }}
+              onClick={() => { props.onPageChanged(page) }}
             > {page}
             </Button>
           )

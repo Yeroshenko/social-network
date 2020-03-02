@@ -38,6 +38,7 @@ export const authApi = {
     return (
       instance
         .get(`auth/me`)
+        .then(response => response.data)
     )
   }
 }

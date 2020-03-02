@@ -1,42 +1,17 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import {
-  follow,
-  unfollow,
-  setUsers,
-  setCurrentPage,
-  setTotalUsersCount,
-  toggleIsFeatching,
-  togleFollowingProgress
-} from '../../../redux/users-reducer'
-
-import { usersApi } from '../../../api/api'
+import { follow, unfollow, togleFollowingProgress, getUsers, getNewUsers } from '../../../redux/users-reducer'
 
 import Users from './Users'
 
 class UsersContainer extends Component {
-
   componentDidMount() {
-    this.props.toggleIsFeatching(true)
-    
-    usersApi.getUsers(this.props.currentPage, this.props.pageSize)
-      .then(data => {
-        this.props.setUsers(data.items)
-        this.props.setTotalUsersCount(data.totalCount / 5) // test | delete divider
-        this.props.toggleIsFeatching(false)
-      })
+    this.props.getUsers(this.props.currentPage, this.props.pageSize)
   }
 
   onPageChanged = pageNumber => {
-    this.props.setCurrentPage(pageNumber)
-    this.props.toggleIsFeatching(true)
-
-    usersApi.getUsers(pageNumber, this.props.pageSize)
-      .then(data => {
-        this.props.setUsers(data.items)
-        this.props.toggleIsFeatching(false)
-      })
+    this.props.getNewUsers(pageNumber, this.props.pageSize)
   }
 
   render() {
@@ -68,35 +43,7 @@ const mapStateToProps = state => {
   }
 }
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     follow: userId => {
-//       dispatch(followAC(userId))
-//     },
-//     unfollow: userId => {
-//       dispatch(unfollowAC(userId))
-//     },
-//     setUsers: users => {
-//       dispatch(setUsersAC(users))
-//     },
-//     setCurrentPage: pageNumber => {
-//       dispatch(setCurrentPageAC(pageNumber))
-//     },
-//     setTotalUsersCount: totalCount => {
-//       dispatch(setTotalUsersCountAC(totalCount))
-//     },
-//     toggleIsFeatching: isFeatching => {
-//       dispatch(setIsFeatchingAC(isFeatching))
-//     }
-//   }
-// }
-
 export default connect(mapStateToProps, {
-  follow,
-  unfollow,
-  setUsers,
-  setCurrentPage,
-  setTotalUsersCount,
-  toggleIsFeatching,
-  togleFollowingProgress
+   follow, unfollow, togleFollowingProgress, getUsers, getNewUsers
 })(UsersContainer)
+
