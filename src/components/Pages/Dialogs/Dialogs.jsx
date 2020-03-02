@@ -42,7 +42,7 @@ const Dialogs = ({ dialogsPage, updateNewMessageBody, sendMessage }) => {
           ></textarea>
         </div>
         <div>
-          <Button type='primary' onClick={onSendMessageClick}>
+          <Button onClick={onSendMessageClick}>
             Отправить
           </Button>
         </div>

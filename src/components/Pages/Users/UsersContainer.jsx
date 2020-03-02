@@ -7,7 +7,8 @@ import {
   setUsers,
   setCurrentPage,
   setTotalUsersCount,
-  toggleIsFeatching
+  toggleIsFeatching,
+  togleFollowingProgress
 } from '../../../redux/users-reducer'
 
 import { usersApi } from '../../../api/api'
@@ -22,7 +23,7 @@ class UsersContainer extends Component {
     usersApi.getUsers(this.props.currentPage, this.props.pageSize)
       .then(data => {
         this.props.setUsers(data.items)
-        this.props.setTotalUsersCount(data.totalCount / 16) // test | delete divider
+        this.props.setTotalUsersCount(data.totalCount / 5) // test | delete divider
         this.props.toggleIsFeatching(false)
       })
   }
@@ -49,6 +50,8 @@ class UsersContainer extends Component {
         unfollow={this.props.unfollow}
         onPageChanged={this.onPageChanged}
         isFeatching={this.props.isFeatching}
+        followingInProgress={this.props.followingInProgress}
+        togleFollowingProgress={this.props.togleFollowingProgress}
       />
     )
   }
@@ -60,7 +63,8 @@ const mapStateToProps = state => {
     pageSize: state.usersPage.pageSize,
     totalUsersCount: state.usersPage.totalUsersCount,
     currentPage: state.usersPage.currentPage,
-    isFeatching: state.usersPage.isFeatching
+    isFeatching: state.usersPage.isFeatching,
+    followingInProgress: state.usersPage.followingInProgress
   }
 }
 
@@ -93,5 +97,6 @@ export default connect(mapStateToProps, {
   setUsers,
   setCurrentPage,
   setTotalUsersCount,
-  toggleIsFeatching
+  toggleIsFeatching,
+  togleFollowingProgress
 })(UsersContainer)

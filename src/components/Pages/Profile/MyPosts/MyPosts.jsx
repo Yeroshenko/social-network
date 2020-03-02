@@ -34,7 +34,7 @@ const MyPosts = ({ posts, newPostText, updateNewPostText, addPost }) => {
           onChange={onPostChange}
           value={newPostText}
         />
-        <Button type='primary' onClick={onAddPost}>
+        <Button onClick={onAddPost}>
           Add post
         </Button>
       </div>

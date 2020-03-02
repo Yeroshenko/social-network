@@ -3,7 +3,7 @@ import cn from 'classnames'
 
 import './Button.sass'
 
-const Button = ({ children, onClick, className, disabled, type }) => {
+const Button = ({ children, onClick, className, disabled, type = 'primary' }) => {
 
   const classes = cn('btn', className, type)
 

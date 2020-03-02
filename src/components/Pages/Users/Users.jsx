@@ -9,16 +9,15 @@ import coverImg from '../../../assets/img/users-wallpaper.jpg'
 import cls from './Users.module.sass'
 import { usersApi } from '../../../api/api'
 
-const Users = ({ totalUsersCount, currentPage, pageSize, users, follow, unfollow, onPageChanged, isFeatching }) => {
-  
-  const pagesCount = Math.ceil(totalUsersCount / pageSize)
+const Users = ( props ) => {
+  const pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
   const pages = []
   for (let i = 1; i <= pagesCount; i++) pages.push(i)
 
   return (
     <>
       <div className={cls.users}>
-        {users.map(user => {
+        {props.users.map(user => {
           return (
             <div className={cls.userItem} key={user.id}>
               <Cover coverImg={coverImg} className={cls.cover} />
@@ -31,41 +30,52 @@ const Users = ({ totalUsersCount, currentPage, pageSize, users, follow, unfollow
                 />
               </Link>
               <div className={cls.buttons}>
-                {user.followed ? 
-                  <Button type='primary' onClick={() => {
-                    usersApi.unfollow(user.id)
-                      .then(response => {
-                        if(response.data.resultCode === 0) unfollow(user.id)
+                {user.followed ? (
+                  <Button
+                    disabled={props.followingInProgress.some(id => user.id === id)}
+                    onClick={() => {
+                      props.togleFollowingProgress(true, user.id)
+
+                      usersApi.unfollow(user.id).then(response => {
+                        if (response.data.resultCode === 0) props.unfollow(user.id)
+                        props.togleFollowingProgress(false, user.id)
                       })
-                    }}>
+                    }}
+                  >
                     Отписаться
                   </Button>
-                :
-                  <Button type='primary' onClick={() => {
-                    usersApi.follow(user.id)
-                      .then(response => {
-                        if(response.data.resultCode === 0) follow(user.id)
+                ) : (
+                  <Button
+                    disabled={props.followingInProgress.some(id => user.id === id)}
+                    onClick={() => {
+                      props.togleFollowingProgress(true, user.id)
+
+                      usersApi.follow(user.id).then(response => {
+                        if (response.data.resultCode === 0) props.follow(user.id)
+                        props.togleFollowingProgress(false, user.id)
                       })
-                    }
-                  }>
+                    }}
+                  >
                     Подписаться
                   </Button>
-                }
+                )}
                 <Button type='secondary'>Написать</Button>
               </div>
             </div>
           )
         })}
       </div>
-      { isFeatching && <Loader /> }
+      {props.isFeatching && <Loader />}
       <div className={cls.pagination}>
         {pages.map((page, index) => {
           return (
             <Button
               key={index}
               type='primary'
-              className={cn(currentPage === page && cls.selectedPage)}
-              onClick={ () => {onPageChanged(page)} }
+              className={cn(props.currentPage === page && cls.selectedPage)}
+              onClick={() => {
+                props.onPageChanged(page)
+              }}
             > {page}
             </Button>
           )
