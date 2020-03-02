@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import axios from 'axios'
 
 import { setAuthUserData } from '../../redux/auth-reducer'
 
 import Navbar from './Navbar'
+import { authApi } from '../../api/api'
 
 class NavbarContainer extends Component {
   componentDidMount() {
-    axios
-      .get(`https://social-network.samuraijs.com/api/1.0/auth/me`, { withCredentials: true })
+    authApi.auth()
       .then(response => {
         if (response.data.resultCode === 0 ) {
           const {id, login, email} = response.data.data

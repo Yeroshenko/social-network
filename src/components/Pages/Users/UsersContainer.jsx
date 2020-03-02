@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import * as axios from 'axios'
 
 import {
   follow,
@@ -11,20 +10,19 @@ import {
   toggleIsFeatching
 } from '../../../redux/users-reducer'
 
+import { usersApi } from '../../../api/api'
+
 import Users from './Users'
-import { Loader } from '../../Ui'
 
 class UsersContainer extends Component {
 
-  baseUrl = 'https://social-network.samuraijs.com/api/1.0/'
-
   componentDidMount() {
     this.props.toggleIsFeatching(true)
-    axios
-      .get(`${this.baseUrl}users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-      .then(response => {
-        this.props.setUsers(response.data.items)
-        this.props.setTotalUsersCount(response.data.totalCount / 16) // test | delete divider
+    
+    usersApi.getUsers(this.props.currentPage, this.props.pageSize)
+      .then(data => {
+        this.props.setUsers(data.items)
+        this.props.setTotalUsersCount(data.totalCount / 16) // test | delete divider
         this.props.toggleIsFeatching(false)
       })
   }
@@ -32,30 +30,26 @@ class UsersContainer extends Component {
   onPageChanged = pageNumber => {
     this.props.setCurrentPage(pageNumber)
     this.props.toggleIsFeatching(true)
-    axios
-      .get(`${this.baseUrl}users?page=${pageNumber}&count=${this.props.pageSize}`)
-      .then(response => {
-        this.props.setUsers(response.data.items)
+
+    usersApi.getUsers(pageNumber, this.props.pageSize)
+      .then(data => {
+        this.props.setUsers(data.items)
         this.props.toggleIsFeatching(false)
       })
   }
 
   render() {
     return (
-      <>
-        {
-          this.props.isFeatching && <Loader /> 
-        }
-        <Users
-          totalUsersCount={this.props.totalUsersCount}
-          pageSize={this.props.pageSize}
-          currentPage={this.props.currentPage}
-          users={this.props.users}
-          follow={this.props.follow}
-          unfollow={this.props.unfollow}
-          onPageChanged={this.onPageChanged}
-        />
-      </>
+      <Users
+        totalUsersCount={this.props.totalUsersCount}
+        pageSize={this.props.pageSize}
+        currentPage={this.props.currentPage}
+        users={this.props.users}
+        follow={this.props.follow}
+        unfollow={this.props.unfollow}
+        onPageChanged={this.onPageChanged}
+        isFeatching={this.props.isFeatching}
+      />
     )
   }
 }
