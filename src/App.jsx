@@ -11,6 +11,7 @@ import {
   ProfileContainer,
   Settings,
   UsersContainer,
+  Login
 } from './components/Pages'
 
 import './App.sass'
@@ -28,6 +29,7 @@ const App = () => {
           <Route path='/news' component={News} />
           <Route path='/music' component={Music} />
           <Route path='/settings' component={Settings} />
+          <Route path='/login' component={Login} />
         </div>
         <AsideContainer />
       </div>

@@ -6,7 +6,7 @@ import { Button } from '../../Ui'
 
 import cls from './Dialogs.module.sass'
 
-const Dialogs = ({ dialogsPage, updateNewMessageBody, sendMessage }) => {
+const Dialogs = ({ dialogsPage, updateNewMessageBody, sendMessage, isAuth }) => {
   
   const state = dialogsPage
 
@@ -28,6 +28,7 @@ const Dialogs = ({ dialogsPage, updateNewMessageBody, sendMessage }) => {
   const onSendMessageClick = () => {
     sendMessage()
   }
+
 
   return (
     <div className={cls.dialogs}>

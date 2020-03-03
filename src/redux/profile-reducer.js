@@ -65,15 +65,15 @@ const profileReducer = (state = initialState, action) => {
 // Action creators
 export const addPost = () => ({ type: ADD_POST })
 export const updateNewPostText = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text })
-export const setUserProfileInfo = (profile) => ({ type: SET_USER_PROFILE, profile })
+export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 
 
 // Thank creators
-export const setUserProfile = (userId) => {
+export const getUserProfile = (userId) => {
   return (dispatch) => {
     profileApi.getProfile(userId)
       .then(response => {
-        dispatch(setUserProfileInfo(response.data))
+        dispatch(setUserProfile(response.data))
       })
   }
 }
