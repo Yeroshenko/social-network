@@ -20,6 +20,7 @@ const ProfileInfo = ({ profileInfo }) => {
         name={profileInfo.fullName}
         aboutMe={profileInfo.aboutMe}
         className={cls.user}
+        isEditable={true}
       />
       <div className={cls.socialLinks}>
         <SocialLinks links={profileInfo.contacts} />
