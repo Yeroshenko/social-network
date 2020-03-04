@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { compose } from 'redux'
 import { connect } from 'react-redux'
 
 import { getUserProfile } from '../../../redux/profile-reducer'
@@ -25,6 +26,8 @@ const mapStateToProps = state => {
   }
 }
 
-const authRedirectComponent = withAuthRedirect(ProfileContainer)
+export default compose(
+  connect(mapStateToProps, { getUserProfile }),
+  withAuthRedirect
+)(ProfileContainer)
 
-export default connect(mapStateToProps, { getUserProfile })(authRedirectComponent)
