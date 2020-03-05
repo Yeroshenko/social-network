@@ -2,20 +2,23 @@ import React, { Component } from 'react'
 import cls from './UserStatus.module.sass'
 
 class UserStatus extends Component {
+
   state = {
-    editMode: false
+    editMode: false,
+    status: this.props.status
   }
 
   activateEditMode = () => {
-    this.setState({
-      editMode: true
-    })
+    this.setState({ editMode: true })
   }
 
   deactivateEditMode = () => {
-    this.setState({
-      editMode: false
-    })
+    this.setState({ editMode: false })
+    this.props.updateStatus(this.state.status)
+  }
+
+  onStatusChange = (e) => {
+    this.setState({status : e.target.value})
   }
 
   render() {
@@ -29,10 +32,11 @@ class UserStatus extends Component {
           )}
           {this.state.editMode && (
             <input
-              type='text'
-              value={this.props.status}
-              onBlur={this.deactivateEditMode}
               autoFocus
+              type='text'
+              value={this.state.status}
+              onChange={this.onStatusChange}
+              onBlur={this.deactivateEditMode}
             />
           )}
         </div>

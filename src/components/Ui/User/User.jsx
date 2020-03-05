@@ -6,7 +6,7 @@ import UserStatus from './UserStatus/UserStatus'
 
 import cls from './User.module.sass'
 
-const User = ({ photo, name, aboutMe, className, isEditable }) => {
+const User = ({ photo, name, status, className, isEditable, updateStatus }) => {
   return (
     <div className={cn(cls.user, className)}>
       <Avatar url={photo} size={'15rem'} />
@@ -14,7 +14,11 @@ const User = ({ photo, name, aboutMe, className, isEditable }) => {
       <div className={cls.info}>
         <p className={cls.fullName}>{name}</p>
 
-        <UserStatus status={aboutMe} isEditable={isEditable} />
+        <UserStatus
+          status={status}
+          updateStatus={updateStatus}
+          isEditable={isEditable}
+        />
       </div>
     </div>
   )

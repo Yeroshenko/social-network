@@ -35,7 +35,7 @@ export const authApi = {
   me() {
     return (
       instance
-        .get(`auth/me`)
+        .get('auth/me')
         .then(response => response.data)
     )
   }
@@ -46,6 +46,18 @@ export const profileApi = {
     return (
       instance
         .get(`profile/${userId}`)
+    )
+  },
+  getStatus(userId) {
+    return (
+      instance
+        .get(`profile/status/${userId}`)
+    )
+  },
+  updateStatus(status) {
+    return (
+      instance
+        .put('profile/status', { status: status })
     )
   }
 }
