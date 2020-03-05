@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { Button, Cover, User, Loader } from '../../Ui'
 
-import coverImg from '../../../assets/img/users-wallpaper.jpg'
+import coverImg from '../../../assets/img/user-wallpaper.jpg'
 
 import cls from './Users.module.sass'
 

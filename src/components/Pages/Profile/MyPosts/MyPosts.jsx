@@ -1,43 +1,37 @@
 import React from 'react'
+import { reduxForm, Field } from 'redux-form'
 
 import Post from './Post/Post'
-
-import cls from './MyPosts.module.sass'
 import { Button } from '../../../Ui'
 
-const MyPosts = ({ posts, newPostText, updateNewPostText, addPost }) => {
-  const postElements =
-    posts &&
-    posts.map((post, index) => {
-      return (
-        <Post message={post.message} likesCount={post.likesCount} key={index} />
-      )
-    })
+import cls from './MyPosts.module.sass'
 
-  const newPostElement = React.createRef()
+const MyPosts = ({ posts, addPost }) => {
+  const postElements = posts.map((post, index) => {
+    return (
+      <Post message={post.message} likesCount={post.likesCount} key={index} />
+    )
+  })
 
-  const onAddPost = () => {
-    addPost()
+  const onAddPost = formData => {
+    addPost(formData.newPost)
   }
 
-  const onPostChange = () => {
-    const text = newPostElement.current.value
-    updateNewPostText(text)
+  const AddPostForm = ({ handleSubmit }) => {
+    return (
+      <form onSubmit={handleSubmit}>
+        <Field component='textarea' name='newPost' rows='10' />
+        <Button>Add post</Button>
+      </form>
+    )
   }
+
+  const AddPostReduxForm = reduxForm({ form: 'myPosts' })(AddPostForm)
 
   return (
     <div>
-      My posts
-      <div>
-        <textarea
-          ref={newPostElement}
-          onChange={onPostChange}
-          value={newPostText}
-        />
-        <Button onClick={onAddPost}>
-          Add post
-        </Button>
-      </div>
+      <h2>My posts</h2>
+      <AddPostReduxForm onSubmit={onAddPost} />
       <div className={cls.posts}>{postElements}</div>
     </div>
   )

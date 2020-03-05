@@ -5,13 +5,11 @@
   font-weight: bold
   font-size: 1.4rem
   line-height: 1.6rem
+  background-color: #3E3F5E
   border: none
   border-radius: 1.5rem
   cursor: pointer
   transition: .3s border-color, background-color, color, box-shadow ease-in-out
-
-  &:focus
-    outline: none
 
   &:active
     outline: none
@@ -37,27 +35,22 @@
 .primary
   background-color: #615DFA
   color: #FFFFFF
+  box-shadow: 0 .7rem 1.2rem 0 rgba(#615DFA,.2)
 
   &:hover
-    background-color: darken(#615DFA, 2%)
+    background-color: #5753E4
 
   &:active
-    background-color: darken(#615DFA, 2%)
-
-  &:focus
-    background-color: darken(#615DFA, 2%)
-    box-shadow: 0 0 0 .25rem rgba(#615DFA, .5)
+    box-shadow: 0 .7rem 1.2rem 0 rgba(#615DFA,.4)
 
 .secondary
-  background-color: #23D2E3
+  background-color: #23D2E2
   color: #FFFFFF
+  box-shadow: 0 .7rem 1.2rem 0 rgba(#23D2E2,.2)
 
   &:hover
-    background-color: darken(#23D2E3, 2%)
+    background-color: #1BC5D4
 
   &:active
-    background-color: darken(#23D2E3, 2%)
+    box-shadow: 0 .7rem 1.2rem 0 rgba(35,210,226,.4)
 
-  &:focus
-    background-color: darken(#23D2E3, 2%)
-    box-shadow: 0 0 0 .25rem rgba(#23D2E3, .5)

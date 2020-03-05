@@ -5,7 +5,7 @@ import { Button } from '../../Ui'
 
 const LoginForm = ({ handleSubmit }) => {
   return (
-    <form action='' onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <Field type='text' name='login' placeholder='Login' component='input' />
       <Field
         component='input'
@@ -22,9 +22,7 @@ const LoginForm = ({ handleSubmit }) => {
   )
 }
 
-const LoginReduxForm = reduxForm({
-  form: 'login'
-})(LoginForm)
+const LoginReduxForm = reduxForm({ form: 'login' })(LoginForm)
 
 const Login = () => {
   const onSubmit = formData => {

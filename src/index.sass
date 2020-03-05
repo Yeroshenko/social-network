@@ -22,18 +22,17 @@ ul, ol
 a
   color: inherit
 
-
-textarea, input[type=text], input[type=submit], input[type=passord]
+textarea, select, input[type=text], input[type=submit], input[type=passord]
   width: 100%
   max-width: 100%
   display: block
-  padding: 1.7rem 2rem
+  padding: 1.4rem 1.8rem
   font-family: 'Montserrat', sans-serif
-  color: #3E3F5D
+  color: #3E3F5E
   font-size: 1.4rem
   line-height: 1.6rem
   background-color: transparent
-  border: .2rem solid #E5E4E8
+  border: .1rem solid #DEDEEA
   border-radius: 1.5rem
   transition: .3s border-color, background-color, color, box-shadow ease-in-out
 
@@ -44,6 +43,8 @@ textarea, input[type=text], input[type=submit], input[type=passord]
 
   &:focus
     outline: none
-    border-color: lighten(#615DFA, 20%)
+    border-color: #615DFA
     outline: 0
-    box-shadow: 0 0 0 0.2rem rgba(#615DFA,.25)
+
+textarea 
+  resize: vertical
