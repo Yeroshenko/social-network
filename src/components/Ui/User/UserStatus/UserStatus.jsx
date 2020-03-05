@@ -21,6 +21,14 @@ class UserStatus extends Component {
     this.setState({status : e.target.value})
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.status !== this.props.status) {
+      this.setState({
+        status: this.props.status
+      })
+    }
+  }
+
   render() {
     if (this.props.isEditable) {
       return (

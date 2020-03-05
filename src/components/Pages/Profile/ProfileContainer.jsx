@@ -13,7 +13,7 @@ import Profile from './Profile'
 class ProfileContainer extends Component {
   componentDidMount() {
     let userId = this.props.match.params.userId
-    if (!userId) userId = 2
+    if (!userId) userId = 5977
 
     this.props.getUserProfile(userId)
     this.props.getStatus(userId)
