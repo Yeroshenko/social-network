@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import cls from './UserStatus.module.sass'
 
 class UserStatus extends Component {
-
   state = {
     editMode: false,
     status: this.props.status
@@ -17,8 +16,8 @@ class UserStatus extends Component {
     this.props.updateStatus(this.state.status)
   }
 
-  onStatusChange = (e) => {
-    this.setState({status : e.target.value})
+  onStatusChange = e => {
+    this.setState({ status: e.target.value })
   }
 
   componentDidUpdate(prevProps) {
@@ -32,10 +31,13 @@ class UserStatus extends Component {
   render() {
     if (this.props.isEditable) {
       return (
-        <div>
+        <div className={cls.userStatus}>
           {!this.state.editMode && (
-            <p className={cls.userStatus} onDoubleClick={this.activateEditMode}>
-              {this.props.status ? this.props.status : 'Я ещё не придумал 🙄'}
+            <p
+              className={cls.userStatusText}
+              onDoubleClick={this.activateEditMode}
+            >
+              {this.props.status || 'Я ещё не придумал 🙄'}
             </p>
           )}
           {this.state.editMode && (
@@ -51,7 +53,7 @@ class UserStatus extends Component {
       )
     } else {
       return (
-        <p className={cls.userStatus}>
+        <p className={cls.userStatusText}>
           {this.props.status ? this.props.status : 'Я ещё не придумал 🙄'}
         </p>
       )

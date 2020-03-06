@@ -1,10 +1,8 @@
 import React from 'react'
-import { reduxForm, Field } from 'redux-form'
 
 import Post from './Post/Post'
-import { Button } from '../../../Ui'
-
 import cls from './MyPosts.module.sass'
+import AddPostForm from './AddPostForm/AddPostForm'
 
 const MyPosts = ({ posts, addPost }) => {
   const postElements = posts.map((post, index) => {
@@ -17,21 +15,10 @@ const MyPosts = ({ posts, addPost }) => {
     addPost(formData.newPost)
   }
 
-  const AddPostForm = ({ handleSubmit }) => {
-    return (
-      <form onSubmit={handleSubmit}>
-        <Field component='textarea' name='newPost' rows='10' />
-        <Button>Add post</Button>
-      </form>
-    )
-  }
-
-  const AddPostReduxForm = reduxForm({ form: 'myPosts' })(AddPostForm)
-
   return (
     <div>
       <h2>My posts</h2>
-      <AddPostReduxForm onSubmit={onAddPost} />
+      <AddPostForm onSubmit={onAddPost} />
       <div className={cls.posts}>{postElements}</div>
     </div>
   )

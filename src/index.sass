@@ -9,12 +9,15 @@ html
   font-size: 11px
 
 body
-  font-family: 'Montserrat', sans-serif
   font-size: 1.6rem
+  font-family: 'Montserrat', sans-serif
 
 img
   max-width: 100%
   max-height: 100%
+
+input, select, textarea
+  font-family: inherit
 
 ul, ol
   list-style: none
@@ -22,29 +25,3 @@ ul, ol
 a
   color: inherit
 
-textarea, select, input[type=text], input[type=submit], input[type=passord]
-  width: 100%
-  max-width: 100%
-  display: block
-  padding: 1.4rem 1.8rem
-  font-family: 'Montserrat', sans-serif
-  color: #3E3F5E
-  font-size: 1.4rem
-  line-height: 1.6rem
-  background-color: transparent
-  border: .1rem solid #DEDEEA
-  border-radius: 1.5rem
-  transition: .3s border-color, background-color, color, box-shadow ease-in-out
-
-  &::placeholder
-    font-size: 1.4rem
-    line-height: 1.6rem
-    color: #AEAFB4
-
-  &:focus
-    outline: none
-    border-color: #615DFA
-    outline: 0
-
-textarea 
-  resize: vertical
