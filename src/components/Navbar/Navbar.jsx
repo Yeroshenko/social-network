@@ -29,7 +29,7 @@ const Navbar = ({ isAuth }) => {
             Пользователи
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink to='/news' activeClassName={cls.active}>
             Новости
           </NavLink>
@@ -38,19 +38,12 @@ const Navbar = ({ isAuth }) => {
           <NavLink to='/music' activeClassName={cls.active}>
             Музыка
           </NavLink>
-        </li>
+        </li> */}
         <li>
           <NavLink to='/settings' activeClassName={cls.active}>
             Настройки
           </NavLink>
         </li>
-        {isAuth && (
-          <li>
-            <NavLink to='/' exact activeClassName={cls.active}>
-              Выйти
-            </NavLink>
-          </li>
-        )}
       </ul>
     </nav>
   )

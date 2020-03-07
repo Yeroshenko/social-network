@@ -1,9 +1,11 @@
 import React from 'react'
 
-import cls from './Aside.module.sass'
 import Avatar from '../Ui/Avatar/Avatar'
+import { Button } from '../Ui'
 
-const Aside = ({ data }) => {
+import cls from './Aside.module.sass'
+
+const Aside = ({ data, logout, isAuth }) => {
   const friendEl = data.friends.map((item, index) => {
     return (
       <li key={index}>
@@ -15,6 +17,11 @@ const Aside = ({ data }) => {
   return (
     <div className={cls.aside}>
       <ul>{friendEl}</ul>
+      {isAuth && (
+        <Button type='secondary' className={cls.logoutBtn} onClick={logout}>
+          L
+        </Button>
+      )}
     </div>
   )
 }

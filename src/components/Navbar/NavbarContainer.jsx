@@ -12,11 +12,11 @@ class NavbarContainer extends Component {
 
   render() {
     return <Navbar {...this.props} />
-  } 
+  }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   isAuth: state.auth.isAuth
 })
 
-export default connect(mapStateToProps, {getAuthUserData})(NavbarContainer) 
+export default connect(mapStateToProps, { getAuthUserData })(NavbarContainer)

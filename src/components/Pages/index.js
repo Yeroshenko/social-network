@@ -4,7 +4,8 @@ import News from './News/News'
 import ProfileContainer from './Profile/ProfileContainer'
 import Settings from './Settings/Settings'
 import UsersContainer from './Users/UsersContainer'
-import Login from './Login/Login'
+import LoginContainer from './Login/LoginContainer'
+
 
 export {
   DialogsContainer,
@@ -13,5 +14,5 @@ export {
   ProfileContainer,
   Settings,
   UsersContainer,
-  Login
+  LoginContainer
 }

@@ -12,8 +12,8 @@ const LoginForm = ({ handleSubmit }) => {
       <Field
         component={Input}
         type='text'
-        name='login'
-        placeholder='Login'
+        name='email'
+        placeholder='Email'
         validate={[required]}
       />
       <Field
