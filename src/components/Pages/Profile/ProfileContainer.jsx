@@ -10,7 +10,6 @@ import Profile from './Profile'
 class ProfileContainer extends Component {
   componentDidMount() {
     let userId = this.props.match.params.userId
-    debugger
     if (!userId) userId = this.props.authorizedUserId
 
     this.props.getUserProfile(userId)
