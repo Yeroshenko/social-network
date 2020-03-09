@@ -3,7 +3,7 @@
   position: fixed
   top: 6rem
   left: 0
-  width: 27rem 
+  width: 8rem
   height: 100%
   background-color: white
 
@@ -11,23 +11,26 @@
   margin: 0 auto
   margin-top: 3.5rem
   max-width: 23rem
+
   li
+    width: 5rem
+    height: 5rem
+    margin: 0 auto
     margin-bottom: 1rem
-    text-align: center
-    letter-spacing: 0.05rem
-    font-weight: 700
-    font-size: 1.4rem
-    line-height: 1.7rem
-    color: #ADAFCA
     
     a
-      display: block
       width: 100% 
       height: 100%
-      padding: 1.4rem 0
-      text-decoration: none
+      display: flex
+      align-items: center
+      justify-content: center
       border-radius: 1rem
       transition: .2s all ease-in-out
+
+      svg
+        width: 2rem
+        height: 2rem
+        fill: #adafca
 
       &:hover
         color: #3E3F5D
@@ -35,4 +38,6 @@
 
       &.active
         background-color: #23D2E3
-        color: #FFFFFF
+        box-shadow: .4rem .7rem 1.2rem 0 rgba(#23D2E3,.2)
+        svg
+          fill: white
