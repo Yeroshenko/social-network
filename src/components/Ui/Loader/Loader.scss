@@ -7,6 +7,7 @@ $first-box-move: $container-size - ($box-size * 1.25);
 
 .loader {
 	width: $container-size;
+	height: 100%;
 	margin: 0 auto;
 	display: flex;
 	justify-content: space-between;

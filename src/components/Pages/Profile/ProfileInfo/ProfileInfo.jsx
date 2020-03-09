@@ -1,14 +1,12 @@
 import React from 'react'
 
-import { Cover, User, Loader } from '../../../Ui'
+import { Cover, User } from '../../../Ui'
 import SocialLinks from '../../../Ui/SocialLinks/SocialLinks'
 
 import coverImg from '../../../../assets/img/user-wallpaper.jpg'
 import cls from './ProfileInfo.module.sass'
 
 const ProfileInfo = ({ profile, status, updateStatus }) => {
-  if (!profile) return <Loader />
-
   return (
     <div className={cls.profileInfo}>
       <Cover coverImg={coverImg} className={cls.cover} />

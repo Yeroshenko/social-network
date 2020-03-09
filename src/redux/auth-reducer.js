@@ -33,7 +33,7 @@ export const setAuthUserData = (userId, login, email, isAuth) => (
 
 // Thank creators
 export const getAuthUserData = () => (dispatch) => {
-  authApi.me()
+  return authApi.me()
     .then(response => {
       if (response.resultCode === 0 ) {
         const { id, login, email } = response.data
@@ -49,7 +49,11 @@ export const login = (email, password, rememberMe) => (dispatch) => {
       if (response.resultCode === 0 ) {
         dispatch(getAuthUserData())
       } else {
-        const message =  response.messages.length > 0 ? response.messages[0] : 'Не верный емали или пароль'
+        let message = 'Не коректный адрес электронной почты или пароль'
+
+        if (response.resultCode === 10 ) {
+          message = 'Ну вот, заспамил, здесь должна была быть капча, но ее нет🙃'  
+        }
         dispatch(stopSubmit('login', {_error: message}))
       }
     })
