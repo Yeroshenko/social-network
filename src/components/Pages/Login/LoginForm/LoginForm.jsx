@@ -4,9 +4,9 @@ import { reduxForm, Field } from 'redux-form'
 import { Button, Input } from '../../../Ui'
 
 import { required } from '../../../../utils/validators/validators'
+import { FormError } from '../../../Ui/FormControls/FormControls'
 
-
-const LoginForm = ({ handleSubmit }) => {
+const LoginForm = ({ handleSubmit, error }) => {
   return (
     <form onSubmit={handleSubmit}>
       <Field
@@ -27,6 +27,7 @@ const LoginForm = ({ handleSubmit }) => {
         <Field type='checkbox' name='rememberMe' component='input' />
         remember me
       </label>
+      {error && <FormError errorMessage={error} />}
       <Button>Login</Button>
     </form>
   )

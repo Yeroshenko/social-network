@@ -1,4 +1,5 @@
-import { authApi } from "../api/api"
+import { authApi } from '../api/api'
+import { stopSubmit } from 'redux-form'
 
 const SET_USER_DATA = 'SET_USER_DATA'
 
@@ -42,11 +43,14 @@ export const getAuthUserData = () => (dispatch) => {
     })
 }
 export const login = (email, password, rememberMe) => (dispatch) => {
+
   authApi.login(email, password, rememberMe)
     .then(response => {
       if (response.resultCode === 0 ) {
-
         dispatch(getAuthUserData())
+      } else {
+        const message =  response.messages.length > 0 ? response.messages[0] : 'Не верный емали или пароль'
+        dispatch(stopSubmit('login', {_error: message}))
       }
     })
 }

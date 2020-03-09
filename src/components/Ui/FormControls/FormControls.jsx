@@ -14,5 +14,10 @@ const FormControlCreator = Element => ({ input, meta, ...props }) => {
   )
 }
 
+// exports
+export const FormError = ({ errorMessage }) => {
+  return <div className={cls.formError}>{errorMessage}</div>
+}
+
 export const Input = FormControlCreator('input')
 export const Textarea = FormControlCreator('textarea')
