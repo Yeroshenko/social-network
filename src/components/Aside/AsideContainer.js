@@ -12,6 +12,4 @@ const mapStateToProps = state => {
   }
 }
 
-const AsideContainer = connect(mapStateToProps, { logout })(Aside)
-
-export default AsideContainer
+export default connect(mapStateToProps, { logout })(Aside)

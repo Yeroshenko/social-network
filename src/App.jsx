@@ -7,18 +7,10 @@ import { initializeApp } from './redux/app-reducer'
 import Header from './components/Header/Header'
 import NavbarContainer from './components/Navbar/NavbarContainer'
 import AsideContainer from './components/Aside/AsideContainer'
-import {
-  DialogsContainer,
-  Music,
-  News,
-  ProfileContainer,
-  Settings,
-  UsersContainer,
-  LoginContainer
-} from './components/Pages'
+import { DialogsContainer, ProfileContainer, Settings, UsersContainer, LoginContainer } from './components/Pages'
 import { Loader } from './components/Ui'
 
-import './App.sass'
+import cls from './App.module.sass'
 
 class App extends Component {
   componentDidMount() {
@@ -30,10 +22,10 @@ class App extends Component {
 
     return (
       <BrowserRouter>
-        <div className='app-wrapper'>
+        <div className={cls.wrapper}>
           <Header />
           <NavbarContainer />
-          <div className='app-wrapper__content'>
+          <div className={cls.content}>
             <Route path='/profile/:userId?' component={ProfileContainer} />
             <Route path='/dialogs' component={DialogsContainer} />
             <Route path='/users' component={UsersContainer} />

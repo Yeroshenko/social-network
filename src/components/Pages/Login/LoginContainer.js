@@ -9,6 +9,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-const LoginContainer = connect(mapStateToProps, { login })(Login) 
-
-export default LoginContainer
+export default connect(mapStateToProps, { login })(Login) 
