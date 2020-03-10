@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { follow, unfollow, togleFollowingProgress, getUsers, getNewUsers } from '../../../redux/users-reducer'
+import { follow, unfollow, togleFollowingProgress, requestUsers, getNewUsers } from '../../../redux/users-reducer'
+import { getPageSize, getUsers, getTotalUsersCount, getCurrentPage, getIsFeatching, getFollowingInProgress } from '../../../redux/users-selectors'
 
 import Users from './Users'
 
 class UsersContainer extends Component {
   componentDidMount() {
-    this.props.getUsers(this.props.currentPage, this.props.pageSize)
+    this.props.requestUsers(this.props.currentPage, this.props.pageSize)
   }
 
   onPageChanged = pageNumber => {
@@ -32,18 +33,29 @@ class UsersContainer extends Component {
   }
 }
 
+// const mapStateToProps = state => {
+//   return {
+//     users: state.usersPage.users,
+//     pageSize: state.usersPage.pageSize,
+//     totalUsersCount: state.usersPage.totalUsersCount,
+//     currentPage: state.usersPage.currentPage,
+//     isFeatching: state.usersPage.isFeatching,
+//     followingInProgress: state.usersPage.followingInProgress
+//   }
+// }
+
 const mapStateToProps = state => {
   return {
-    users: state.usersPage.users,
-    pageSize: state.usersPage.pageSize,
-    totalUsersCount: state.usersPage.totalUsersCount,
-    currentPage: state.usersPage.currentPage,
-    isFeatching: state.usersPage.isFeatching,
-    followingInProgress: state.usersPage.followingInProgress
+    users: getUsers(state),
+    pageSize: getPageSize(state),
+    totalUsersCount: getTotalUsersCount(state),
+    currentPage: getCurrentPage(state),
+    isFeatching: getIsFeatching(state),
+    followingInProgress: getFollowingInProgress(state)
   }
 }
 
 export default connect(mapStateToProps, {
-   follow, unfollow, togleFollowingProgress, getUsers, getNewUsers
+   follow, unfollow, togleFollowingProgress, requestUsers, getNewUsers
 })(UsersContainer)
 
