@@ -18,6 +18,7 @@ class App extends Component {
   }
 
   render() {
+
     if (!this.props.initialized) return <Loader />
 
     return (
@@ -29,8 +30,8 @@ class App extends Component {
             <Route path='/profile/:userId?' component={ProfileContainer} />
             <Route path='/dialogs' component={DialogsContainer} />
             <Route path='/users' component={UsersContainer} />
-            {/* <Route path='/news' component={News} />
-            <Route path='/music' component={Music} /> */}
+            <Route path='/news' component={News} />
+            <Route path='/music' component={Music} />
             <Route path='/settings' component={Settings} />
             <Route path='/login' component={LoginContainer} />
           </div>
@@ -41,7 +42,7 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   initialized: state.app.initialized
 })
 
