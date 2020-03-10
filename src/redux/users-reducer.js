@@ -78,7 +78,7 @@ export const togleFollowingProgress = (isFeatching, userId) => ({ type: TOGGLE_F
 
 
 // Thank creators
-export const requestUsers = (currentPage, pageSize) => {
+export const getUsers = (currentPage, pageSize) => {
   return (dispatch) => {
     dispatch(toggleIsFeatching(true))
 

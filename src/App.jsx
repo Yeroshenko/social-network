@@ -9,8 +9,8 @@ import NavbarContainer from './components/Navbar/NavbarContainer'
 import AsideContainer from './components/Aside/AsideContainer'
 import {
   DialogsContainer,
-  // Music,
-  // News,
+  Music,
+  News,
   ProfileContainer,
   Settings,
   UsersContainer,
