@@ -1,64 +1,50 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
+
 import cls from './UserStatus.module.sass'
 
-class UserStatus extends Component {
-  state = {
-    editMode: false,
-    status: this.props.status
+const UserStatus = ({ isEditable, status, updateStatus }) => {
+  const noStatus = 'Я ещё не придумал 🙄'
+
+  const [editMode, setEditMode] = useState(false)
+  const [newStatus, setNewStatus] = useState(status)
+
+  useEffect(() => { setNewStatus(status) }, [status])
+
+  const activateEditMode = () => {
+    setEditMode(true)
   }
 
-  activateEditMode = () => {
-    this.setState({ editMode: true })
+  const deactivateEditMode = () => {
+    setEditMode(false)
+    updateStatus(newStatus)
   }
 
-  deactivateEditMode = () => {
-    this.setState({ editMode: false })
-    this.props.updateStatus(this.state.status)
+  const onStatusChange = e => {
+    setNewStatus(e.target.value)
   }
 
-  onStatusChange = e => {
-    this.setState({ status: e.target.value })
+  if (!isEditable) {
+    return <p className={cls.userStatusText}>{status || noStatus}</p>
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.status !== this.props.status) {
-      this.setState({
-        status: this.props.status
-      })
-    }
-  }
-
-  render() {
-    if (this.props.isEditable) {
-      return (
-        <div className={cls.userStatus}>
-          {!this.state.editMode && (
-            <p
-              className={cls.userStatusText}
-              onDoubleClick={this.activateEditMode}
-            >
-              {this.props.status || 'Я ещё не придумал 🙄'}
-            </p>
-          )}
-          {this.state.editMode && (
-            <input
-              autoFocus
-              type='text'
-              value={this.state.status}
-              onChange={this.onStatusChange}
-              onBlur={this.deactivateEditMode}
-            />
-          )}
-        </div>
-      )
-    } else {
-      return (
-        <p className={cls.userStatusText}>
-          {this.props.status ? this.props.status : 'Я ещё не придумал 🙄'}
+  return (
+    <div className={cls.userStatus}>
+      {!editMode && (
+        <p className={cls.userStatusText} onDoubleClick={activateEditMode}>
+          {status || noStatus}
         </p>
-      )
-    }
-  }
+      )}
+      {editMode && (
+        <input
+          autoFocus
+          type='text'
+          value={newStatus}
+          onChange={onStatusChange}
+          onBlur={deactivateEditMode}
+        />
+      )}
+    </div>
+  )
 }
 
 export default UserStatus
