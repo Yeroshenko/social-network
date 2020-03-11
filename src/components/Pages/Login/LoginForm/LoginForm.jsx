@@ -13,14 +13,14 @@ const LoginForm = ({ handleSubmit, error }) => {
         component={Input}
         type='text'
         name='email'
-        placeholder='Email'
+        label='Email'
         validate={[required]}
       />
       <Field
         component={Input}
         type='password'
         name='password'
-        placeholder='Password'
+        label='Password'
         validate={[required]}
       />
       <label>

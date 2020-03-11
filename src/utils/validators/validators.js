@@ -1,6 +1,6 @@
 export const required = value => {
   if (value) return undefined
-  return 'Так блет, не выебывайся'
+  return 'Не соизволите ли вы ввести нужные данные'
 }
 
 export const maxLength = max => value => {

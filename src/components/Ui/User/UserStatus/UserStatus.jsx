@@ -8,7 +8,9 @@ const UserStatus = ({ isEditable, status, updateStatus }) => {
   const [editMode, setEditMode] = useState(false)
   const [newStatus, setNewStatus] = useState(status)
 
-  useEffect(() => { setNewStatus(status) }, [status])
+  useEffect(() => {
+    setNewStatus(status)
+  }, [status])
 
   const activateEditMode = () => {
     setEditMode(true)
@@ -23,9 +25,8 @@ const UserStatus = ({ isEditable, status, updateStatus }) => {
     setNewStatus(e.target.value)
   }
 
-  if (!isEditable) {
+  if (!isEditable)
     return <p className={cls.userStatusText}>{status || noStatus}</p>
-  }
 
   return (
     <div className={cls.userStatus}>

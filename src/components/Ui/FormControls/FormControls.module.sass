@@ -1,11 +1,7 @@
-.formControl 
+.formControlInner
+  position: relative
 
-  textarea, 
-  select, 
-  input[type=text], 
-  input[type=submit], 
-  input[type=password], 
-  input[type=email]
+  input, textarea
     width: 100%
     max-width: 100%
     display: block
@@ -14,7 +10,7 @@
     color: #3E3F5E
     font-size: 1.4rem
     line-height: 1.6rem
-    background-color: transparent
+    background-color: #FFFFFF
     border: .1rem solid #DEDEEA
     border-radius: 1.5rem
     transition: .3s border-color, background-color, color, box-shadow ease-in-out
@@ -27,10 +23,27 @@
     &:focus
       outline: none
       border-color: #615DFA
-
+      
   textarea
     resize: vertical
-    
+
+  .formControlLabel
+    position: absolute
+    left: 1.8rem
+    top: 1.4rem
+    font-size: 1.4rem
+    line-height: 1.6rem
+    color: #AEAFB4
+    transition: .3s all ease-in-out
+    z-index: 1
+
+.active
+  .formControlLabel
+    background-color: #FFFFFF
+    padding: 0 .6rem
+    font-size: 1.2rem
+    top: -0.7rem
+    left: 1.2rem
 
 .invalid
   textarea, input

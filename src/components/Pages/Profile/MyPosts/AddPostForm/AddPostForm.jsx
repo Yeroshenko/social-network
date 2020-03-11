@@ -5,7 +5,7 @@ import { Textarea, Button } from '../../../../Ui'
 
 import { maxLength, required } from '../../../../../utils/validators/validators'
 
-const maxLength10 = maxLength(10)
+const maxLength30 = maxLength(30)
 
 const AddPostForm = ({ handleSubmit }) => {
   return (
@@ -14,8 +14,8 @@ const AddPostForm = ({ handleSubmit }) => {
         component={Textarea}
         name='newPost'
         rows='10'
-        placeholder='Излагайте свои мысли господа...'
-        validate={[required, maxLength10]}
+        label='Излагайте свои мысли господа...'
+        validate={[required, maxLength30]}
       />
       <Button>Add post</Button>
     </form>

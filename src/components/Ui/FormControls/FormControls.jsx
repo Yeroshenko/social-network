@@ -1,14 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import cn from 'classnames'
 
 import cls from './FormControls.module.sass'
 
-const FormControlCreator = Element => ({ input, meta, ...props }) => {
+const FormControlCreator = ({ input, label, meta, field, ...props }) => {
+  const [inFocuse, setInFocuse] = useState(false)
+
   const hasInvalid = meta.touched && meta.error
+
+  const onFocus = () => setInFocuse(true)
+  const onBlur = () => {
+    if (!input.value.length) setInFocuse(false)
+  }
 
   return (
     <div className={cn(cls.formControl, hasInvalid && cls.invalid)}>
-      <Element {...input} {...props} />
+      <div className={cn(cls.formControlInner, inFocuse && cls.active)}>
+        <label className={cls.formControlLabel}>{label}</label>
+        {field === 'input' && (
+          <input {...input} {...props} onFocus={onFocus} onBlur={onBlur} />
+        )}
+        {field === 'textarea' && (
+          <textarea {...input} {...props} onFocus={onFocus} onBlur={onBlur} />
+        )}
+      </div>
       {hasInvalid && <span>{meta.error}</span>}
     </div>
   )
@@ -19,5 +34,10 @@ export const FormError = ({ errorMessage }) => {
   return <div className={cls.formError}>{errorMessage}</div>
 }
 
-export const Input = FormControlCreator('input')
-export const Textarea = FormControlCreator('textarea')
+export const Input = props => {
+  return <FormControlCreator {...props} field='input' />
+}
+
+export const Textarea = props => {
+  return <FormControlCreator {...props} field='textarea' />
+}

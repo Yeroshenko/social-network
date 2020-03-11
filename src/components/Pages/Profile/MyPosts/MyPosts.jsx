@@ -1,8 +1,9 @@
 import React from 'react'
 
 import Post from './Post/Post'
-import cls from './MyPosts.module.sass'
 import AddPostForm from './AddPostForm/AddPostForm'
+
+import cls from './MyPosts.module.sass'
 
 const MyPosts = ({ posts, addPost }) => {
   const postElements = posts.map((post, index) => {
@@ -16,7 +17,7 @@ const MyPosts = ({ posts, addPost }) => {
   }
 
   return (
-    <div>
+    <div className = {cls.myPosts}>
       <h2>My posts</h2>
       <AddPostForm onSubmit={onAddPost} />
       <div className={cls.posts}>{postElements}</div>

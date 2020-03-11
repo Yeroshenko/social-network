@@ -12,9 +12,9 @@ const DialogsForm = (props) => {
         name='newMessageBody'
         type='text'
         component={Textarea}
-        rows='1'
+        rows='4'
         validate={[required]}
-        placeholder='Написать сообщение...'
+        label='Написать сообщение...'
       />
       <Button>Отправить</Button>
     </form>
