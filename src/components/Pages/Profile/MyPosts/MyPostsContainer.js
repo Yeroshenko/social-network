@@ -11,6 +11,4 @@ const mapStateToProps = state => {
   }
 }
 
-const MyPostsContainer = connect(mapStateToProps, { addPost })(MyPosts)
-
-export default MyPostsContainer
+export default connect(mapStateToProps, { addPost })(MyPosts)
