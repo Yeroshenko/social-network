@@ -51,7 +51,7 @@ const Navbar = ({ isAuth }) => {
       <ul className={cls.list}>
         {!isAuth && (
           <li>
-            <NavLink to='/login' exact activeClassName={cls.active}>
+            <NavLink to='/' exact activeClassName={cls.active}>
               {loginIcon}
             </NavLink>
           </li>

@@ -10,7 +10,7 @@ const mapStateToProps = state => {
 
 export const withAuthRedirect = Component => {
   const RedirectComponent = (props) => {
-    if (!props.isAuth) return <Redirect to='/login' />
+    if (!props.isAuth) return <Redirect to='/' />
 
     return <Component {...props} />
   }

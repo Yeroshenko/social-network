@@ -8,7 +8,7 @@ import cls from './Profile.module.sass'
 
 const Profile = ({ profile, status, updateStatus}) => {
 
-  if(!profile) return <Loader />
+  if(!profile) return <Loader fullPage />
 
   return (
     <div className={cls.profile}>

@@ -14,7 +14,7 @@ const Users = ( props ) => {
   for (let i = 1; i <= pagesCount; i++) pages.push(i)
 
   return (
-    <>
+    <div>
       <div className={cls.users}>
         {props.users.map(user => {
           return (
@@ -50,7 +50,9 @@ const Users = ( props ) => {
           )
         })}
       </div>
+      
       {props.isFeatching && <Loader />}
+      
       <div className={cls.pagination}>
         {pages.map((page, index) => {
           return (
@@ -64,7 +66,7 @@ const Users = ( props ) => {
           )
         })}
       </div>
-    </>
+    </div>
   )
 }
 

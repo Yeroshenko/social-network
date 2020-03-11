@@ -6,9 +6,9 @@ import AddPostForm from './AddPostForm/AddPostForm'
 import cls from './MyPosts.module.sass'
 
 const MyPosts = ({ posts, addPost }) => {
-  const postElements = posts.map((post, index) => {
+  const postElements = [...posts].reverse().map((post, index) => {
     return (
-      <Post message={post.message} likesCount={post.likesCount} key={index} />
+      <Post message={post.message} likesCount={post.likesCount}  key={index} />
     )
   })
 
@@ -17,7 +17,7 @@ const MyPosts = ({ posts, addPost }) => {
   }
 
   return (
-    <div className = {cls.myPosts}>
+    <div className={cls.myPosts}>
       <h2>My posts</h2>
       <AddPostForm onSubmit={onAddPost} />
       <div className={cls.posts}>{postElements}</div>

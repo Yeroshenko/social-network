@@ -1,10 +1,13 @@
 import React from 'react'
+import cn from 'classnames'
 
-import './Loader.scss' 
+import './Loader.scss'
 
-const Loader = () => {
+const Loader = ({ fullPage = false }) => {
+  const classes = cn('loader', fullPage && 'fullPage')
+
   return (
-    <div className='loader'>
+    <div className={classes}>
       <div className='loader-element'></div>
       <div className='loader-element'></div>
       <div className='loader-element'></div>
