@@ -1,5 +1,31 @@
-.item 
-  img 
-    max-width: 10rem
-    border-radius: 50%
-    background-color: #fff
+.post 
+  display: flex
+  flex-direction: column
+  padding: 2rem
+  border: .1rem solid #DEDEEA
+  border-radius: 1.5rem
+
+  &:not(:last-child)
+    margin-bottom: 2rem
+    
+.autor
+  width: 100%
+  display: flex
+  align-items: center
+  margin-bottom: 1rem
+  font-weight: 600
+
+.postText
+  margin-left: 7rem
+  line-height: 140%
+
+.deleteIcon
+  margin-left: auto
+  height: 2rem
+  width: 2rem
+  fill: #ADAFCA
+  transition: .3s all ease-in-out
+  cursor: pointer
+
+  &:hover
+    fill: #23D2E3

@@ -9,7 +9,7 @@ import cls from './User.module.sass'
 const User = ({ photo, name, status, className, isEditable, updateStatus }) => {
   return (
     <div className={cn(cls.user, className)}>
-      <Avatar url={photo} size={'15rem'} />
+      <Avatar url={photo} size={'15rem'} substrate />
 
       <div className={cls.info}>
         <p className={cls.fullName}>{name}</p>

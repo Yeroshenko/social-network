@@ -6,24 +6,31 @@ import {
   unfollow,
   togleFollowingProgress,
   requestUsers,
-  getNewUsers } from '../../../redux/users-reducer'
-  
-import { getPageSize,
+  getNewUsers
+} from '../../../redux/users-reducer'
+
+import {
+  getPageSize,
   getTotalUsersCount,
   getCurrentPage,
   getIsFeatching,
   getFollowingInProgress,
-  getUsers } from '../../../redux/users-selectors'
+  getUsers
+} from '../../../redux/users-selectors'
 
 import Users from './Users'
 
 class UsersContainer extends Component {
   componentDidMount() {
-    this.props.requestUsers(this.props.currentPage, this.props.pageSize)
+    const { currentPage, pageSize, requestUsers } = this.props
+
+    requestUsers(currentPage, pageSize)
   }
 
   onPageChanged = pageNumber => {
-    this.props.getNewUsers(pageNumber, this.props.pageSize)
+    const { getNewUsers, pageSize } = this.props
+
+    getNewUsers(pageNumber, pageSize)
   }
 
   render() {

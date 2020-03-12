@@ -1,11 +1,11 @@
 import React from 'react'
-import { reduxForm, Field } from 'redux-form'
+import { reduxForm, Field, reset } from 'redux-form'
 
 import { Textarea, Button } from '../../../Ui'
 
 import { required } from '../../../../utils/validators/validators'
 
-const DialogsForm = (props) => {
+const DialogsForm = props => {
   return (
     <form onSubmit={props.handleSubmit}>
       <Field
@@ -21,4 +21,8 @@ const DialogsForm = (props) => {
   )
 }
 
-export default reduxForm({ form: 'dialog' })(DialogsForm)
+const clearForm = (result, dispatch) => dispatch(reset('dialog'))
+
+export default reduxForm({ form: 'dialog', onSubmitSuccess: clearForm })(
+  DialogsForm
+)

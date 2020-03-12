@@ -27,7 +27,7 @@ const UserStatus = ({ isEditable, status, updateStatus }) => {
 
   if (!isEditable)
     return <p className={cls.userStatusText}>{status || noStatus}</p>
-
+  
   return (
     <div className={cls.userStatus}>
       {!editMode && (

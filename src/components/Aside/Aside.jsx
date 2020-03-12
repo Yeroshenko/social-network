@@ -9,7 +9,7 @@ const Aside = ({ data, logout, isAuth }) => {
   const friendEl = data.friends.map((item, index) => {
     return (
       <li key={index}>
-        <Avatar size={'6rem'} />
+        <Avatar size={'5rem'} substrate={false} />
       </li>
     )
   })

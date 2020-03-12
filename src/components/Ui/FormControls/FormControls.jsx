@@ -30,14 +30,10 @@ const FormControlCreator = ({ input, label, meta, field, ...props }) => {
 }
 
 // exports
-export const FormError = ({ errorMessage }) => {
-  return <div className={cls.formError}>{errorMessage}</div>
-}
+export const FormError = ({ errorMessage }) => (
+  <div className={cls.formError}>{errorMessage}</div>
+)
 
-export const Input = props => {
-  return <FormControlCreator {...props} field='input' />
-}
+export const Input = props => <FormControlCreator {...props} field='input' />
 
-export const Textarea = props => {
-  return <FormControlCreator {...props} field='textarea' />
-}
+export const Textarea = props => <FormControlCreator {...props} field='textarea' />

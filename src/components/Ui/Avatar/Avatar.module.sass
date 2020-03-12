@@ -1,5 +1,4 @@
 .avatar
-  margin: 0 auto
   display: block
   background-image: url('../../../assets/avatar/avatar-substrate.svg')
   background-repeat: no-repeat
@@ -7,12 +6,18 @@
   position: relative
 
   img 
+    display: block
+    mask-image: url('../../../assets/avatar/polygon.svg')
+    mask-size: 100% 100%
+    mask-repeat: no-repeat
+  
+  .withSubs
     position: absolute
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)
     display: block
-    max-height: 70%
+    max-height: 68%
     mask-image: url('../../../assets/avatar/polygon.svg')
     mask-size: 100% 100%
     mask-repeat: no-repeat

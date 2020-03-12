@@ -1,28 +1,16 @@
 import React from 'react'
-import { reduxForm, Field } from 'redux-form'
+import { reduxForm, Field, reset } from 'redux-form'
 
 import { Button, Input } from '../../../Ui'
+import { FormError } from '../../../Ui/FormControls/FormControls'
 
 import { required } from '../../../../utils/validators/validators'
-import { FormError } from '../../../Ui/FormControls/FormControls'
 
 const LoginForm = ({ handleSubmit, error }) => {
   return (
     <form onSubmit={handleSubmit}>
-      <Field
-        component={Input}
-        type='text'
-        name='email'
-        label='Email'
-        validate={[required]}
-      />
-      <Field
-        component={Input}
-        type='password'
-        name='password'
-        label='Password'
-        validate={[required]}
-      />
+      <Field component={Input} type='text' name='email' label='Email' validate={[required]} />
+      <Field component={Input} type='password' name='password' label='Password' validate={[required]} />
       <label>
         <Field type='checkbox' name='rememberMe' component='input' />
         remember me
@@ -33,4 +21,8 @@ const LoginForm = ({ handleSubmit, error }) => {
   )
 }
 
-export default reduxForm({ form: 'login' })(LoginForm)
+const clearForm = (result, dispatch) => dispatch(reset('myPosts'))
+
+export default reduxForm({ form: 'login', onSubmitSuccess: clearForm })(
+  LoginForm
+)
