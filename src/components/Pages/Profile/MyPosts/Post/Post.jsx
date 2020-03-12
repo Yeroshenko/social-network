@@ -3,6 +3,7 @@ import React from 'react'
 import Avatar from '../../../../Ui/Avatar/Avatar'
 
 import cls from './Post.module.sass'
+import { Tooltip } from '../../../../Ui'
 
 const deleteIcon = (
   <svg viewBox='0 0 20 20'>
@@ -20,7 +21,9 @@ const Post = ({ message, autor, deletePost, id }) => {
         <Avatar size={'7rem'} />
         <p>{autor}</p>
         <div onClick={() => deletePost(id)} className={cls.deleteIcon}>
-          {deleteIcon}
+          <Tooltip position='left' content='Удалить пост'>
+            {deleteIcon}
+          </Tooltip>
         </div>
       </div>
       <p className={cls.postText}>{message}</p>

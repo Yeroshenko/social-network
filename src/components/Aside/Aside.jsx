@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Avatar from '../Ui/Avatar/Avatar'
-import { Button } from '../Ui'
+import { Button, Tooltip } from '../Ui'
 
 import cls from './Aside.module.sass'
 
@@ -24,14 +24,18 @@ const Aside = ({ data, logout, isAuth }) => {
     </svg>
   )
 
-  if(!isAuth) return null
+  if (!isAuth) return null
 
   return (
     <div className={cls.aside}>
       <ul>{friendEl}</ul>
-      <Button type='secondary' className={cls.logoutBtn} onClick={logout}>
-        {logoutIcon}
-      </Button>
+      <div className={cls.logout}>
+        <Tooltip position='left' content='Выйти'>
+          <Button type='secondary' className={cls.logoutBtn} onClick={logout}>
+            {logoutIcon}
+          </Button>
+        </Tooltip>
+      </div>
     </div>
   )
 }

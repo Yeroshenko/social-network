@@ -5,7 +5,6 @@ const DELETE_POST = 'profile/DELETE_POST'
 const SET_USER_PROFILE = 'profile/SET_USER_PROFILE'
 const SET_STATUS = 'profile/SET_STATUS'
 
-
 const initialState = {
   posts: [{
       id: 1,

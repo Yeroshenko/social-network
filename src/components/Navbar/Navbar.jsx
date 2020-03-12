@@ -2,9 +2,9 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 import cls from './Navbar.module.sass'
+import { Tooltip } from '../Ui'
 
 const Navbar = ({ isAuth }) => {
-  
   const loginIcon = (
     <svg viewBox='0 0 512 512'>
       <path d='m218.667969 240h-202.667969c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h202.667969c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0' />
@@ -51,30 +51,40 @@ const Navbar = ({ isAuth }) => {
       <ul className={cls.list}>
         {!isAuth && (
           <li>
-            <NavLink to='/' exact activeClassName={cls.active}>
-              {loginIcon}
-            </NavLink>
+            <Tooltip constent='Войти'>
+              <NavLink to='/' exact activeClassName={cls.active}>
+                {loginIcon}
+              </NavLink>
+            </Tooltip>
           </li>
         )}
         <li>
-          <NavLink to='/profile' exact activeClassName={cls.active}>
-            {profileIcon}
-          </NavLink>
+          <Tooltip content='Профиль'>
+            <NavLink to='/profile' exact activeClassName={cls.active}>
+              {profileIcon}
+            </NavLink>
+          </Tooltip>
         </li>
         <li>
-          <NavLink to='/dialogs' activeClassName={cls.active}>
-            {dialogsIcon}
-          </NavLink>
+          <Tooltip content='Диалоги'>
+            <NavLink to='/dialogs' activeClassName={cls.active}>
+              {dialogsIcon}
+            </NavLink>
+          </Tooltip>
         </li>
         <li>
-          <NavLink to='/users' activeClassName={cls.active}>
-            {usersIcon}
-          </NavLink>
+          <Tooltip content='Все пользователи'>
+            <NavLink to='/users' activeClassName={cls.active}>
+              {usersIcon}
+            </NavLink>
+          </Tooltip>
         </li>
         <li>
-          <NavLink to='/settings' activeClassName={cls.active}>
-            {settingsIcon}
-          </NavLink>
+          <Tooltip content='Настройки'>
+            <NavLink to='/settings' activeClassName={cls.active}>
+              {settingsIcon}
+            </NavLink>
+          </Tooltip>
         </li>
       </ul>
     </nav>

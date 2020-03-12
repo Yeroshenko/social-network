@@ -4,6 +4,7 @@ import Loader from './Loader/Loader'
 import Button from './Button/Button'
 import { Textarea, Input } from './FormControls/FormControls'
 import Pagination from './Pagination/Pagination'
+import Tooltip from './Tooltip/Tooltip'
 
 export {
   Cover,
@@ -12,5 +13,6 @@ export {
   Button,
   Input,
   Textarea,
-  Pagination
+  Pagination,
+  Tooltip
 }
