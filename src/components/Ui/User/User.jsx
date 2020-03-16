@@ -2,7 +2,7 @@ import React from 'react'
 import cn from 'classnames'
 
 import Avatar from '../Avatar/Avatar'
-import UserStatus from './UserStatus/UserStatus'
+import UserStatus from './UserStatus/UserStatusClass'
 
 import cls from './User.module.sass'
 

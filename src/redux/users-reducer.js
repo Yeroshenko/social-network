@@ -77,7 +77,7 @@ export const requestUsers = (currentPage, pageSize) => {
     const data = await usersApi.getUsers(currentPage, pageSize)
 
     dispatch(setUsers(data.items))
-    dispatch(setTotalUsersCount(data.totalCount / 20)) // test | delete divider
+    dispatch(setTotalUsersCount(data.totalCount ))
     dispatch(toggleIsFeatching(false))  
   }
 }

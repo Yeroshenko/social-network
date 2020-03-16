@@ -16,7 +16,7 @@ test('length of posts should be incremented', () => {
   const newState = profileReducer(state, action)
 
   expect(newState.posts.length).toBe(5)
-}); 
+})
 
 test('message of new post should be correct', () => {
   
@@ -34,7 +34,7 @@ test('after deleting length of posts should be decrement', () => {
   const newState = profileReducer(state, action)
 
   expect(newState.posts.length).toBe(3)
-});
+})
 
 test('after deleting length of posts should be corected if id is incorected', () => {
   
@@ -43,4 +43,4 @@ test('after deleting length of posts should be corected if id is incorected', ()
   const newState = profileReducer(state, action)
 
   expect(newState.posts.length).toBe(4)
-});
+})

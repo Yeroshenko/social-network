@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import { connect, Provider } from 'react-redux'
 import { BrowserRouter, Route } from 'react-router-dom'
 
 import { initializeApp } from './redux/app-reducer'
+import store from './redux/redux-store'
 
 import Header from './components/Header/Header'
 import NavbarContainer from './components/Navbar/NavbarContainer'
@@ -47,4 +48,12 @@ const mapStateToProps = state => ({
   initialized: state.app.initialized
 })
 
-export default connect(mapStateToProps, { initializeApp })(App)
+const AppContainer =  connect(mapStateToProps, { initializeApp })(App)
+
+const SocialNetwork = () => (
+  <Provider store={store}>
+    <AppContainer />
+  </Provider>
+)
+
+export default SocialNetwork
