@@ -1,12 +1,12 @@
 import React from 'react'
 
-import { Avatar, Loader } from '../../Ui'
+import SettingsForm from './SettingsForm/SettingsForm'
+import { Avatar, Loader, Input } from '../../Ui'
 
 import cls from './Settings.module.sass'
 
 const Settings = ({ profile, updatePhoto }) => {
-
-  const avatarSelected = (e) => {
+  const avatarSelected = e => {
     updatePhoto(e.target.files[0])
   }
 
@@ -14,8 +14,9 @@ const Settings = ({ profile, updatePhoto }) => {
 
   return (
     <div className={cls.settings}>
+      <h1>Настройки</h1>
       <div className={cls.avatar}>
-        <h2>Настроить аватар</h2>
+        <h2>Аватар</h2>
         <div className={cls.avatarInner}>
           <Avatar url={profile.photos.large} size={'15rem'} />
           <p>Большая</p>
@@ -25,6 +26,11 @@ const Settings = ({ profile, updatePhoto }) => {
           <p>Маленькая</p>
         </div>
         <input type='file' onChange={avatarSelected} />
+      </div>
+
+      <div className={cls.contactInfo}>
+        <h2>Личная информация</h2>
+        <SettingsForm contacts={profile.contacts}/>
       </div>
     </div>
   )

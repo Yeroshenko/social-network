@@ -1,5 +1,5 @@
 import React from 'react'
-import { reduxForm, Field, reset } from 'redux-form'
+import { reduxForm, Field } from 'redux-form'
 
 import { Button, Input } from '../../../Ui'
 import { FormError } from '../../../Ui/FormControls/FormControls'
@@ -21,8 +21,6 @@ const LoginForm = ({ handleSubmit, error }) => {
   )
 }
 
-const clearForm = (result, dispatch) => dispatch(reset('myPosts'))
-
-export default reduxForm({ form: 'login', onSubmitSuccess: clearForm })(
+export default reduxForm({ form: 'login' })(
   LoginForm
 )
