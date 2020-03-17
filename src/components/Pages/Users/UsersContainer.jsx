@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 
 import {
@@ -20,7 +20,7 @@ import {
 
 import Users from './Users'
 
-class UsersContainer extends Component {
+class UsersContainer extends PureComponent {
   componentDidMount() {
     const { currentPage, pageSize, requestUsers } = this.props
 

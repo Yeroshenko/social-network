@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 
@@ -7,7 +7,7 @@ import { withAuthRedirect } from '../../../hoc/withAuthRedirect'
 
 import Profile from './Profile'
 
-class ProfileContainer extends Component {
+class ProfileContainer extends PureComponent {
   componentDidMount() {
     let userId = this.props.match.params.userId
     if (!userId) userId = this.props.authorizedUserId

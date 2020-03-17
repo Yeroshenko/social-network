@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { connect, Provider } from 'react-redux'
 import { BrowserRouter, Route } from 'react-router-dom'
 
@@ -19,7 +19,7 @@ import { Loader } from './components/Ui'
 
 import cls from './App.module.sass'
 
-class App extends Component {
+class App extends PureComponent {
   componentDidMount() {
     this.props.initializeApp()
   }

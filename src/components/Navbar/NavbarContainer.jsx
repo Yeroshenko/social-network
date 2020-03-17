@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 
 import Navbar from './Navbar'
 
-class NavbarContainer extends Component {
+class NavbarContainer extends PureComponent {
   render() {
     return <Navbar {...this.props} />
   }

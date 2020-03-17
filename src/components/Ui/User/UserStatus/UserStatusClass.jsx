@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 
 import cls from './UserStatus.module.sass'
 
-class UserStatusClass extends Component {
+class UserStatusClass extends PureComponent {
   state = {
     editMode: false,
     status: this.props.status
