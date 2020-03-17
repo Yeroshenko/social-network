@@ -73,11 +73,12 @@ export const togleFollowingProgress = (isFeatching, userId) => ({ type: TOGGLE_F
 export const requestUsers = (currentPage, pageSize) => {
   return async (dispatch) => {
     dispatch(toggleIsFeatching(true))
-
+    // to last page
+    dispatch(setCurrentPage())
     const data = await usersApi.getUsers(currentPage, pageSize)
 
     dispatch(setUsers(data.items))
-    dispatch(setTotalUsersCount(data.totalCount ))
+    dispatch(setTotalUsersCount(data.totalCount))
     dispatch(toggleIsFeatching(false))  
   }
 }

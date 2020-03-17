@@ -5,28 +5,41 @@ import UserCard from './UserCard/UserCard'
 
 import cls from './Users.module.sass'
 
-const Users = (props) => {
+const Users = props => {
+  const {
+    users,
+    followingInProgress,
+    follow,
+    unfollow,
+    isFeatching,
+    totalUsersCount,
+    pageSize,
+    currentPage,
+    onPageChanged
+  } = props
+
   return (
     <div>
       <div className={cls.users}>
-        {props.users.map(user => (
+        {users.map(user => (
           <UserCard
             key={user.id}
             user={user}
-            followingInProgress={props.followingInProgress}
-            follow={props.follow}
-            unfollow={props.unfollow}
+            followingInProgress={followingInProgress}
+            follow={follow}
+            unfollow={unfollow}
           />
         ))}
       </div>
-      
-      {props.isFeatching && <Loader />}
-      
+
+      {isFeatching && <Loader />}
+
       <Pagination
-        totalUsersCount={props.totalUsersCount}
-        pageSize={props.pageSize}
-        currentPage={props.currentPage}
-        onPageChanged={props.onPageChanged}
+        totalItemsCount={totalUsersCount}
+        pageSize={pageSize}
+        currentPage={currentPage}
+        onPageChanged={onPageChanged}
+        portionSize={6}
       />
     </div>
   )
