@@ -24,7 +24,7 @@ const Pagination = ({
   const rightPortionNumber = portionNumber * portionSize
 
   const prewPortion = () => {
-    if (portionNumber - 1 >= 0) return
+    if (portionNumber - 1 <= 0) return
     setPortionNumber(portionNumber - 1)
   }
   const nextPortion = () => {

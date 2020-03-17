@@ -11,7 +11,7 @@ import AsideContainer from './components/Aside/AsideContainer'
 import {
   DialogsContainer,
   ProfileContainer,
-  Settings,
+  SettingsContainer,
   UsersContainer,
   LoginContainer
 } from './components/Pages'
@@ -35,7 +35,7 @@ class App extends PureComponent {
           <Route path='/profile/:userId?' component={ProfileContainer} />
           <Route path='/dialogs' component={DialogsContainer} />
           <Route path='/users' component={UsersContainer} />
-          <Route path='/settings' component={Settings} />
+          <Route path='/settings' component={SettingsContainer} />
           <Route path='/' exact component={LoginContainer} />
         </div>
         <AsideContainer />

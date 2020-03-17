@@ -1,7 +1,6 @@
 import React from 'react'
 
-import Avatar from '../Ui/Avatar/Avatar'
-import { Button, Tooltip } from '../Ui'
+import { Button, Tooltip, Avatar } from '../Ui'
 
 import cls from './Aside.module.sass'
 

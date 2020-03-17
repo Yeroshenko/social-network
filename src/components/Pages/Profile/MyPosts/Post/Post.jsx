@@ -1,9 +1,8 @@
 import React from 'react'
 
-import Avatar from '../../../../Ui/Avatar/Avatar'
+import { Tooltip, Avatar } from '../../../../Ui'
 
 import cls from './Post.module.sass'
-import { Tooltip } from '../../../../Ui'
 
 const deleteIcon = (
   <svg viewBox='0 0 20 20'>
