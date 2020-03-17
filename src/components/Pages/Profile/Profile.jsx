@@ -6,9 +6,8 @@ import { Loader } from '../../Ui'
 
 import cls from './Profile.module.sass'
 
-const Profile = ({ profile, status, updateStatus}) => {
-
-  if(!profile) return <Loader fullPage />
+const Profile = ({ profile, status, updateStatus, isOwner }) => {
+  if (!profile) return <Loader fullPage />
 
   return (
     <div className={cls.profile}>
@@ -17,7 +16,7 @@ const Profile = ({ profile, status, updateStatus}) => {
         status={status}
         updateStatus={updateStatus}
       />
-      <MyPostsContainer />
+      {isOwner && <MyPostsContainer />}
     </div>
   )
 }

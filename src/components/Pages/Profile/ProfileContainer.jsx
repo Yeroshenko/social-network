@@ -8,18 +8,30 @@ import { withAuthRedirect } from '../../../hoc/withAuthRedirect'
 import Profile from './Profile'
 
 class ProfileContainer extends PureComponent {
-  componentDidMount() {
+  
+  refreshUser() {
     let userId = this.props.match.params.userId
     if (!userId) userId = this.props.authorizedUserId
 
     this.props.getUserProfile(userId)
     this.props.getUserStatus(userId)
   }
+  
+  componentDidMount() {
+    this.refreshUser()
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.userId !== prevProps.match.params.userId) {
+      this.refreshUser()
+    }
+  }
 
   render() {
     return (
       <Profile
         {...this.props}
+        isOwner={!this.props.match.params.userId}
         profile={this.props.profile}
         status={this.props.status}
         updateStatus={this.props.updateUserStatus}
