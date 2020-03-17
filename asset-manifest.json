@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/socail-network/static/css/main.cef78df6.chunk.css",
+    "main.js": "/socail-network/static/js/main.7e435fcf.chunk.js",
+    "main.js.map": "/socail-network/static/js/main.7e435fcf.chunk.js.map",
+    "runtime-main.js": "/socail-network/static/js/runtime-main.2a442664.js",
+    "runtime-main.js.map": "/socail-network/static/js/runtime-main.2a442664.js.map",
+    "static/js/2.ad984531.chunk.js": "/socail-network/static/js/2.ad984531.chunk.js",
+    "static/js/2.ad984531.chunk.js.map": "/socail-network/static/js/2.ad984531.chunk.js.map",
+    "index.html": "/socail-network/index.html",
+    "precache-manifest.093f6642ab796e0e29842ff47ea74a8e.js": "/socail-network/precache-manifest.093f6642ab796e0e29842ff47ea74a8e.js",
+    "service-worker.js": "/socail-network/service-worker.js",
+    "static/css/main.cef78df6.chunk.css.map": "/socail-network/static/css/main.cef78df6.chunk.css.map",
+    "static/js/2.ad984531.chunk.js.LICENSE.txt": "/socail-network/static/js/2.ad984531.chunk.js.LICENSE.txt",
+    "static/media/Avatar.module.sass": "/socail-network/static/media/polygon.5bbc97f8.svg",
+    "static/media/logo.svg": "/socail-network/static/media/logo.230b8385.svg",
+    "static/media/user-wallpaper.jpg": "/socail-network/static/media/user-wallpaper.d9362f6f.jpg",
+    "static/media/user.png": "/socail-network/static/media/user.7cc7a630.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2a442664.js",
+    "static/js/2.ad984531.chunk.js",
+    "static/css/main.cef78df6.chunk.css",
+    "static/js/main.7e435fcf.chunk.js"
+  ]
+}
