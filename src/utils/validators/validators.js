@@ -11,6 +11,6 @@ export const maxLength = max => value => {
 }
 
 export const isEmail = value => {
-  if (!is.email(value)) return 'Не соизволите ли вы ввести корректный email'
+  if (!is.email(value)) return 'Не соизволите ли вы ввести корректный логин'
   return undefined
 }
