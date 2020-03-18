@@ -1,7 +1,7 @@
 import React from 'react'
 
 import SettingsForm from './SettingsForm/SettingsForm'
-import { Avatar, Loader, Input } from '../../Ui'
+import { Avatar, Loader } from '../../Ui'
 
 import cls from './Settings.module.sass'
 

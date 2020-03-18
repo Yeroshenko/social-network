@@ -1,10 +1,7 @@
 import React, { useEffect } from 'react'
 import { reduxForm, Field, reset } from 'redux-form'
 
-import { Button, Input } from '../../../Ui'
-import { FormError } from '../../../Ui/FormControls/FormControls'
-
-import { required } from '../../../../utils/validators/validators'
+import { Input } from '../../../Ui'
 
 import cls from './SettingsForm.module.sass'
 
