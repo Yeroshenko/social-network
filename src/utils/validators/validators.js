@@ -14,3 +14,8 @@ export const isEmail = value => {
   if (!is.email(value)) return 'Не соизволите ли вы ввести корректный логин'
   return undefined
 }
+
+export const isUrl = value => {
+  if (value && !is.url(value)) return 'Не верный URL адресс. Пример: http://www.test.com '
+  return undefined
+}

@@ -12,6 +12,7 @@ const Profile = ({ profile, status, updateStatus, isOwner }) => {
   return (
     <div className={cls.profile}>
       <ProfileInfo
+        isOwner = {isOwner}
         profile={profile}
         status={status}
         updateStatus={updateStatus}

@@ -6,7 +6,7 @@ import SocialLinks from '../../../Ui/SocialLinks/SocialLinks'
 import coverImg from '../../../../assets/img/user-wallpaper.jpg'
 import cls from './ProfileInfo.module.sass'
 
-const ProfileInfo = ({ profile, status, updateStatus }) => {
+const ProfileInfo = ({ profile, isOwner, status, updateStatus }) => {
   return (
     <div className={cls.profileInfo}>
       <Cover coverImg={coverImg} className={cls.cover} />
@@ -16,7 +16,7 @@ const ProfileInfo = ({ profile, status, updateStatus }) => {
         name={profile.fullName}
         status={status}
         updateStatus={updateStatus}
-        isEditable={true}
+        isEditable={!!isOwner}
       />
       <div className={cls.socialLinks}>
         <SocialLinks links={profile.contacts} />

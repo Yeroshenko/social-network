@@ -85,5 +85,11 @@ export const profileApi = {
         headers: { 'Content-Type': 'multipart/form-data' }
       })
     ) 
+  },
+  updateProfile(profile) {
+    return (
+      instance
+        .put('profile', profile)
+    ) 
   }
 }

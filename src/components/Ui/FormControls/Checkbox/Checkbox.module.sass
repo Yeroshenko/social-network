@@ -1,13 +1,31 @@
+.left
+  .labelText
+    padding-left: 3rem
+
+    &::before 
+      left: 0
+    &::after 
+      left: .5rem
+
+.right
+  .labelText
+    padding-right: 3rem
+        
+    &::before 
+      right: 0
+      
+    &::after 
+      right: .5rem
+
+ 
 .labelText
-  padding-left: 3rem
   position: relative
   line-height: 2rem
   cursor: pointer
 
-  &:before 
+  &::before 
     content: ''
     position: absolute
-    left: 0
     top: 50%
     transform: translateY(-50%)
     display: block
@@ -19,15 +37,14 @@
     transition: .3s all ease-in-out
     z-index: 1
 
-  &:after 
+  &::after 
     content: ''
     position: absolute
     top: .5rem
-    left: .5rem
     display: block
     width: 1rem
     height: 1rem
-    background: url('../../../assets/icons/close.svg')
+    background: url('../../../../assets/icons/close.svg')
     background-repeat: no-repeat
     background-position: center
     background-size: 1rem
@@ -35,15 +52,16 @@
     opacity: 0
     z-index: 2
 
+  
 
 .input 
   display: none
   opacity: 0
 
-.input:checked + .labelText:before 
+.input:checked + .labelText::before 
   background-color: #23D2E3
   border-color: #23D2E3
 
-.input:checked + .labelText:after 
+.input:checked + .labelText::after 
   opacity: 1
 

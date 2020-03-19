@@ -105,5 +105,24 @@ export const updatePhoto = (file) => async (dispatch) => {
 
   if (response.data.resultCode === 0) dispatch(updatePhotoSuccess(response.data.data.photos))
 }
+export const updateProfileInfo = (profile) => async (dispatch, getState) => {
+  const userId = getState().auth.userId
+  const prewProfile = getState().profilePage.profile
+  const contacts = {...prewProfile.contacts}
+  const newProfile = {...profile, contacts }
+
+  const response = await profileApi.updateProfile(newProfile)
+
+  if (response.data.resultCode === 0) dispatch(getUserProfile(userId))
+}
+export const updateContactsInfo = (contacts) => async (dispatch, getState) => {
+  const userId = getState().auth.userId
+  const profile = getState().profilePage.profile
+  const newProfile = {...profile, contacts}
+  const response = await profileApi.updateProfile(newProfile)
+  
+  if (response.data.resultCode === 0) dispatch(getUserProfile(userId))
+}
+
 
 export default profileReducer
