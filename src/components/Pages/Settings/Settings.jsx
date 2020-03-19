@@ -1,4 +1,5 @@
 import React from 'react'
+import cn from 'classnames'
 
 import { Avatar, Loader } from '../../Ui'
 import ProfileInfoForm from './SettingsForms/ProfileInfoForm'
@@ -17,31 +18,41 @@ const Settings = ({
   const onProfileSubmit = formData => updateProfileInfo(formData)
   const onContactsSubmit = formData => updateContactsInfo(formData)
 
-  const profileCopy = {...profile}
+  const photoBlock = (size, name) => {
+    return (
+      <div className={cls.avatarInner}>
+        <Avatar url={profile.photos.large} size={size} />
+        <p>{name}</p>
+      </div>
+    )
+  }
+
+  const section = (className, title, body) => (
+    <div className={cn(className, cls.section)}>
+      <h2 className={cls.sectionTitle}>{title}</h2>
+      {body}
+    </div>
+  )
 
   if (!profile) return <Loader />
 
-  debugger
   return (
     <div className={cls.settings}>
       <h1 className={cls.pageTitle}>Настройки</h1>
 
-      <div className={cls.avatar}>
-        <h2 className={cls.sectionTitle}>Аватар</h2>
-        <div className={cls.avatarInner}>
-          <Avatar url={profile.photos.large} size={'15rem'} />
-          <p>Большая</p>
-        </div>
+      {section(
+        cls.avatar,
+        'Аватарка',
+        <>
+          {photoBlock('15rem', 'Большая')}
+          {photoBlock('7rem', 'Маленькая')}
+          <input type='file' onChange={avatarSelected} />
+        </>
+      )}
 
-        <div className={cls.avatarInner}>
-          <Avatar url={profile.photos.large} size={'7rem'} />
-          <p>Маленькая</p>
-        </div>
-        <input type='file' onChange={avatarSelected} />
-      </div>
-
-      <div className={cls.profileInfo}>
-        <h2 className={cls.sectionTitle}>Личная информация</h2>
+      {section(
+        cls.profileInfo,
+        'Личная информация',
         <ProfileInfoForm
           onSubmit={onProfileSubmit}
           fullName={profile.fullName}
@@ -49,12 +60,16 @@ const Settings = ({
           lookingForAJob={profile.lookingForAJob}
           lookingForAJobDescription={profile.lookingForAJobDescription}
         />
-      </div>
-
-      <div className={cls.socialLinks}>
-        <h2>Социальные сети</h2>
-        <ContactsForm contacts={profileCopy.contacts} onSubmit={onContactsSubmit} />
-      </div>
+      )}
+      {section(
+        cls.socialLinks,
+        'Социальные сети',
+        <ContactsForm
+          contacts={profile.contacts}
+          onSubmit={onContactsSubmit}
+          initialValues={{ ...profile.contacts }}
+        />
+      )}
     </div>
   )
 }

@@ -1,21 +1,18 @@
 import React from 'react'
-import { reduxForm, Field, reset } from 'redux-form'
+import { reduxForm, reset } from 'redux-form'
+
+import { required } from '../../../../utils/validators/validators'
+import { createField } from '../../../Ui/FormControls/FormControls'
 
 import { Textarea, Button } from '../../../Ui'
 
-import { required } from '../../../../utils/validators/validators'
 
 const DialogsForm = props => {
   return (
     <form onSubmit={props.handleSubmit}>
-      <Field
-        name='newMessageBody'
-        type='text'
-        component={Textarea}
-        rows='4'
-        validate={[required]}
-        label='Написать сообщение...'
-      />
+      {createField(
+        Textarea, 'newMessageBody', 'Написать сообщение...', null, [required], { rows: '4' } 
+      )}
       <Button>Отправить</Button>
     </form>
   )

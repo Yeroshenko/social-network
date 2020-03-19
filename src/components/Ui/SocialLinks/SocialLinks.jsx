@@ -3,7 +3,6 @@ import React from 'react'
 import cls from './SocialLinks.module.sass'
 
 const SocialLinks = ({ links }) => {
-  console.log(links)
   return (
     <ul className={cls.socialLinks}>
       {links.website && (

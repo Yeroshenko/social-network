@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react'
-import { reduxForm, Field } from 'redux-form'
-import cn from 'classnames'
+import { reduxForm } from 'redux-form'
 
 import { isUrl } from '../../../../utils/validators/validators'
+import { createField } from '../../../Ui/FormControls/FormControls'
 
 import { Input, Button } from '../../../Ui'
 
 import cls from './SettingsForms.module.sass'
 
 const ContactsForm = ({ contacts, handleSubmit, ...props }) => {
-  useEffect(() => {
-    props.initialize({ ...contacts })
-  }, [])
+  // useEffect(() => {
+  //   props.initialize({ ...contacts })
+  // }, [])
 
   return (
     <form onSubmit={handleSubmit}>
@@ -19,17 +19,12 @@ const ContactsForm = ({ contacts, handleSubmit, ...props }) => {
         return (
           <div className={cls.inputWrapper} key={key}>
             <p className={cls.inputName}>{key}</p>
-            <Field
-              component={Input}
-              name={key}
-              placeholder={key}
-              validate={[isUrl]}
-            />
+            {createField(Input, key, null, key, [isUrl])}
           </div>
         )
       })}
 
-      <Button>Обновить</Button>
+      <Button className={cls.submitButton}>Обновить</Button>
     </form>
   )
 }

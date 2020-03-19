@@ -15,7 +15,7 @@ const UserCard = ({ user, followingInProgress, follow, unfollow }) => {
         <User
           photo={user.photos.large}
           name={user.name}
-          aboutMe={user.status}
+          status={user.status}
           className={cls.user}
         />
       </Link>

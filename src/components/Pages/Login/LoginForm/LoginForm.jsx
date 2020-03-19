@@ -2,7 +2,7 @@ import React from 'react'
 import { reduxForm, Field } from 'redux-form'
 
 import { Button, Input, Checkbox } from '../../../Ui'
-import { FormError } from '../../../Ui/FormControls/FormControls'
+import { FormError, createField } from '../../../Ui/FormControls/FormControls'
 
 import { required, isEmail } from '../../../../utils/validators/validators'
 
@@ -12,34 +12,18 @@ const LoginForm = ({ handleSubmit, error }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className={cls.loginInput}>
-        <Field
-          component={Input}
-          type='text'
-          name='email'
-          label='Логин'
-          validate={[required, isEmail]}
-          className={cls.loginInput}
-        />
+        {createField(Input, 'email', 'Логин', null, [required, isEmail])}
       </div>
       <div className={cls.loginInput}>
-        <Field
-          component={Input}
-          type='password'
-          name='password'
-          label='Пароль'
-          validate={[required]}
-        />
+        {createField(Input, 'password', 'Пароль', null, [required], { type: 'password' })}
       </div>
 
       <div className={cls.loginCheckbox}>
-        <Field
-          component={Checkbox}
-          type='checkbox'
-          name='rememberMe'
-          label={'Запомнить меня'}
-        />
+        {createField(Checkbox, 'rememberMe', 'Запомнить меня', null, null, { type: 'checkbox' })}
       </div>
+
       {error && <FormError errorMessage={error} />}
+      
       <div className={cls.loginBtn}>
         <Button>Войти</Button>
       </div>
