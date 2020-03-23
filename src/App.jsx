@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect, Provider } from 'react-redux'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
 import { initializeApp } from './redux/app-reducer'
 import store from './redux/redux-store'
@@ -33,11 +33,14 @@ class App extends PureComponent {
           <Header />
           <NavbarContainer />
           <div className={cls.content}>
-            <Route path='/profile/:userId?' component={ProfileContainer} />
-            <Route path='/dialogs' component={DialogsContainer} />
-            <Route path='/users' component={UsersContainer} />
-            <Route path='/settings' component={SettingsContainer} />
-            <Route path='/' exact component={LoginContainer} />
+            <Switch>
+              <Route path='/profile/:userId?' component={ProfileContainer} />
+              <Route path='/dialogs' component={DialogsContainer} />
+              <Route path='/users' component={UsersContainer} />
+              <Route path='/settings' component={SettingsContainer} />
+              <Route path='/' exact component={LoginContainer} />
+              <Redirect to='/' />
+            </Switch>
           </div>
           <AsideContainer />
         </BrowserRouter>
