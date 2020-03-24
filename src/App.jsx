@@ -7,7 +7,6 @@ import store from './redux/redux-store'
 
 import Header from './components/Header/Header'
 import NavbarContainer from './components/Navbar/NavbarContainer'
-import AsideContainer from './components/Aside/AsideContainer'
 import {
   DialogsContainer,
   ProfileContainer,
@@ -42,7 +41,6 @@ class App extends PureComponent {
               <Redirect to='/' />
             </Switch>
           </div>
-          <AsideContainer />
         </BrowserRouter>
       </div>
     )
