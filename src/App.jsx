@@ -7,13 +7,7 @@ import store from './redux/redux-store'
 
 import Header from './components/Header/Header'
 import NavbarContainer from './components/Navbar/NavbarContainer'
-import {
-  DialogsContainer,
-  ProfileContainer,
-  SettingsContainer,
-  UsersContainer,
-  LoginContainer
-} from './components/Pages'
+import { ProfileContainer, SettingsContainer, UsersContainer, LoginContainer } from './components/Pages'
 import { Loader } from './components/Ui'
 
 import cls from './App.module.sass'
@@ -34,7 +28,7 @@ class App extends PureComponent {
           <div className={cls.content}>
             <Switch>
               <Route path='/profile/:userId?' component={ProfileContainer} />
-              <Route path='/dialogs' component={DialogsContainer} />
+              {/* <Route path='/dialogs' component={DialogsContainer} /> */}
               <Route path='/users' component={UsersContainer} />
               <Route path='/settings' component={SettingsContainer} />
               <Route path='/' exact component={LoginContainer} />

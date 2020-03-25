@@ -36,7 +36,7 @@ class UserStatusClass extends PureComponent {
           {!this.state.editMode && (
             <p
               className={cls.userStatusText}
-              onDoubleClick={this.activateEditMode}
+              onClick={this.activateEditMode}
             >
               {this.props.status || 'Я ещё не придумал 🙄'}
             </p>
